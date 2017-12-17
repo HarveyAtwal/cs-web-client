@@ -1,0 +1,23 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.button {
+  box-sizing: border-box;
+  border-radius: $inputBorderRadius;
+  width: 100%;
+  
+  padding: $p;
+  
+  border: none;
+  outline: none;
+  
+  &--primary {
+    background: lighten($primary, 10);
+    color: $white;
+    cursor: pointer;
+    
+    &:hover {
+      background: $primary;
+    }
+  }
+}

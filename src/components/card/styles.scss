@@ -1,0 +1,14 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.card {
+  border-radius: $borderRadius;
+  box-sizing: border-box;
+  background: $white;
+  
+  width: 100%;
+  
+  &--padded {
+    padding: $p--2;
+  }
+}

@@ -1,0 +1,41 @@
+$gutter: 10px;
+
+// padding
+//
+$p: $gutter;
+$p--2: $gutter * 2;
+
+$pt: $gutter;
+$pl: $gutter;
+$pr: $gutter;
+$pb: $gutter;
+
+$pt--2: $gutter * 2;
+$pl--2: $gutter * 2;
+$pr--2: $gutter * 2;
+$pb--2: $gutter * 2;
+
+$px: 0 $gutter 0 $gutter;
+$py: $gutter 0 $gutter 0;
+
+$py--2: $gutter * 2 0 $gutter * 2 0;
+
+// margin
+//
+$m: $gutter;
+$m--2: $gutter * 2;
+
+$mt: $gutter;
+$ml: $gutter;
+$mr: $gutter;
+$mb: $gutter;
+
+$mt--2: $gutter * 2;
+$ml--2: $gutter * 2;
+$mr--2: $gutter * 2;
+$mb--2: $gutter * 2;
+
+$mx: 0 $gutter 0 $gutter;
+$my: $gutter 0 $gutter 0;
+
+$my--2: $gutter * 2 0 $gutter * 2 0;

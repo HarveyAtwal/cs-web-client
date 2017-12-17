@@ -1,0 +1,88 @@
+@import '~sass/colors';
+@import '~sass/variables';
+
+// base class reset
+//
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// gutter classes
+.pt {
+  padding-top: $pt;
+}
+.pl {
+  padding-left: $pl;
+}
+.pb {
+  padding-bottom: $pb;
+}
+.pr {
+  padding-right: $pr;
+}
+.py {
+  padding: $py;
+}
+
+.pt--2 {
+  padding-top: $pt--2;
+}
+.pl--2 {
+  padding-left: $pl--2;
+}
+.pb--2 {
+  padding-bottom: $pb--2;
+}
+.pr--2 {
+  padding-right: $pr--2;
+}
+.py--2 {
+  padding: $py--2;
+}
+
+.mt {
+  margin-top: $mt;
+}
+.ml {
+  margin-left: $ml;
+}
+.mb {
+  margin-bottom: $mb;
+}
+.mr {
+  margin-right: $mr;
+}
+.my {
+  margin: $my;
+}
+
+.mt--2 {
+  margin-top: $mt--2;
+}
+.ml--2 {
+  margin-left: $ml--2;
+}
+.mb--2 {
+  margin-bottom: $mb--2;
+}
+.mr--2 {
+  margin-right: $mr--2;
+}
+.my--2 {
+  margin: $my--2;
+}
+
+
+//
+// Color classes 
+.col--primary {
+  color: $primary;
+}
+.col--white {
+  color: $white;
+}
+.col--subtext {
+  color: $subtext;
+}
+

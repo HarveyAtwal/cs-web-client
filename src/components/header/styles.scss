@@ -1,0 +1,54 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.header {
+  background: $header;
+  height: $headerHeight;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: $white;
+  
+  &--primary {
+    background: $primary;
+  }
+  
+  &__content {
+    max-width: $contentWidth;
+    width: 100%;
+    height: $headerHeight;
+    padding: $px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  
+  &__logo {
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  &__signup {
+    border-radius: $inputBorderRadius;
+    border: 1px solid $white;
+    padding: 5px 10px;
+    background: lighten($primary, 10);
+    
+    &:hover {
+      background: $primary;
+    }
+  }
+  
+  li {
+    display: inline-block;
+    padding-right: $p--2;
+    
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

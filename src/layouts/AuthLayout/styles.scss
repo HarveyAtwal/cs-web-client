@@ -1,0 +1,33 @@
+@import '~sass/colors.scss';
+@import '~sass/variables.scss';
+
+.authlayout {
+  background: $primary;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  &__container {
+    max-width: $contentWidth;
+    margin: 40px auto;
+    padding: $px;
+  }
+  
+  &__content {
+    max-width: 400px;
+    margin: 0px auto;
+    
+    &--large {
+      max-width: 600px !important;
+    }
+  }
+  
+  &__title {
+    padding-bottom: 40px;
+  }
+  
+  &__card {
+    padding: 30px 24px;
+    margin-bottom: 30px;
+  }
+}
