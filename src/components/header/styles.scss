@@ -10,6 +10,10 @@
   flex-direction: row;
   color: $white;
   
+  &--authenticated {
+    height: $headerAuthenticatedHeight;
+  }
+  
   &--primary {
     background: $primary;
   }
@@ -24,6 +28,14 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    
+    &--authenticated {
+      height: $headerAuthenticatedHeight;
+      
+      .header__logo {
+        font-size: 20px;
+      }
+    }
   }
   
   

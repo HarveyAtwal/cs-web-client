@@ -8,6 +8,14 @@ a {
   color: inherit;
 }
 
+// util classes
+.inline {
+  display: inline-block;
+}
+.flex {
+  display: flex;
+}
+
 // gutter classes
 .pt {
   padding-top: $pt;
@@ -73,6 +81,19 @@ a {
   margin: $my--2;
 }
 
+.mt--3 {
+  margin-top: $mt--3;
+}
+.ml--3 {
+  margin-left: $ml--3;
+}
+.mb--3 {
+  margin-bottom: $mb--3;
+}
+.mr--3 {
+  margin-right: $mr--3;
+}
+
 
 //
 // Color classes 
@@ -82,7 +103,7 @@ a {
 .col--white {
   color: $white;
 }
-.col--subtext {
-  color: $subtext;
-}
 
+.col--secondaryText {
+  color: $secondaryText;
+}

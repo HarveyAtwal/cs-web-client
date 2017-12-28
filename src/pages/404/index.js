@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
 import AuthLayout from 'layouts/AuthLayout'

@@ -12,7 +12,11 @@ const pathnames = {
   forgot: '/forgot',
   terms: '/terms',
   privacy: '/privacy',
-  dashboard: '/dashboard'
+  dashboard: '/dashboard',
+  tracker: '/tracker',
+  activity: '/activity',
+  reports: '/reports',
+  settings: '/settings',
 }
 
 const routes = [{ 
@@ -30,7 +34,23 @@ const routes = [{
   component: Forgot
 }, { 
   path: pathnames.dashboard,
-  protected: true,
+  protected: false,
+  component: Dashboard
+}, { 
+  path: pathnames.tracker,
+  protected: false,
+  component: Dashboard
+}, { 
+  path: pathnames.activity,
+  protected: false,
+  component: Dashboard
+}, { 
+  path: pathnames.reports,
+  protected: false,
+  component: Dashboard
+}, { 
+  path: pathnames.settings,
+  protected: false,
   component: Dashboard
 }, {
   component: NoMatch

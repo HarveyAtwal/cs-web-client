@@ -1,0 +1,33 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.tabs {
+  
+  .tab__item {
+    color: $secondaryText;
+    cursor: pointer;
+    
+    &__content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 1px; // line up tab underline
+    }
+    
+    &:hover {
+      color: $primaryText;
+      border-bottom: 1px solid $primaryText;
+    }
+    
+    &--active {
+      color: $primary;
+      border-bottom: 1px solid $primary;
+      
+      &:hover {
+        cursor: default;
+        color: $primary;
+        border-bottom: 1px solid $primary;
+      }
+    }
+  }
+}

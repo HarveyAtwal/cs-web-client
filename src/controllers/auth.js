@@ -16,7 +16,7 @@ class AuthController {
     window.isAuthenticated = this.isAuthenticated()
   }
   
-  signin() {
+  signin(payload) {
     window.isAuthenticated = true
   }
   

@@ -27,9 +27,9 @@ dispatcher.destroy = function() {
   this.stopListening()
 }
 
-dispatcher.on("all", function(action) {
+dispatcher.on("all", function(action, payload) {
   if (process.env.NODE_ENV === 'development') { 
-    console.log("Action Dispatched: ", action);
+    console.log("Action Dispatched: ", action, payload);
   }
 });
 

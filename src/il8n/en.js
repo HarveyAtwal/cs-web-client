@@ -11,6 +11,21 @@ export default {
     verifyPassword: "Verify Password",
   },
   
+  navigation: {
+    "dashboard": "Dashboard",
+    "tracker": "Tracker",
+    "activity": "Activity",
+    "reports": "Reports",
+    "settings": "Settings",
+  },
+  
+  footer: {
+    copy: "© 2017 ProjectOne",
+    home: "Home",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service"
+  },
+  
   page: {
     "404": {
       title: "Page Not Found",

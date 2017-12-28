@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { translate } from 'react-polyglot';
 
 import Text from 'components/text';
+import Icon from 'components/icon';
 import { pathnames } from 'routes';
 import './styles.scss'
 
@@ -24,8 +25,11 @@ class Header extends React.Component {
     const { props } = this;
     
     return (
-      <div className="header__content">
+      <div className="header__content header__content--authenticated">
         {this.renderLogo()}
+        <div className="header__avatar">
+          <Text theme="header"><Icon type="avatar" /></Text>
+        </div>
       </div>
     )
   }
@@ -48,7 +52,8 @@ class Header extends React.Component {
     const { props } = this;
     
     const classes = classNames("header", {
-      "header--primary": props.primaryBg
+      "header--primary": props.primaryBg,
+      "header--authenticated": props.authenticated
     });
     
     return (

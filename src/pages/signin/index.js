@@ -21,7 +21,10 @@ class Signin extends React.Component {
   }
 
   login = () => {
-    this.publish("auth:signin");
+    this.publish("auth:signin", {
+      username: "hello",
+      password: "hello"
+    });
   }
 
   render() {
@@ -32,7 +35,7 @@ class Signin extends React.Component {
         <Card className="authlayout__card">
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Input placeholder={props.t("form.password")} type="password"/>
-          <Button className="mt--2" label={props.t("page.signin.signin")}/>
+          <Button className="mt--2" label={props.t("page.signin.signin")} onClick={this.login} />
         </Card>
         <div className="text--center">
           <Link to={pathnames.forgot}>

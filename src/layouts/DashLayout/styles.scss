@@ -1,0 +1,65 @@
+@import '~sass/colors.scss';
+@import '~sass/variables.scss';
+
+.dashlayout {
+  background: $background;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+
+  &__nav {
+    display: flex;
+    background: $white;
+    border-bottom: 1px solid $border; 
+    padding: $px;
+    
+    &__tabs {
+      width: $contentWidth;
+      margin: 0 auto;
+    }
+  }
+  
+  &__container {
+    flex: 1 1 auto;
+  }
+  
+  &__content {
+    max-width: $contentWidth;
+    margin: 0px auto;
+  }
+  
+  &__footer {
+    display: flex;
+    border-top: 1px solid $border; 
+    background: $white;
+    padding: $px;
+  }
+}
+
+.footer {
+  height: $footerHeight;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  
+  &__content {
+    max-width: $contentWidth;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  &__links {
+    li {
+      display: inline-block;
+      margin-right: $mr--2;
+    }
+  }
+}

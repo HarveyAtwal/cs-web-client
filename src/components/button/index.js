@@ -17,7 +17,11 @@ class Button extends React.Component {
     });
     
     return (
-      <button className={classes}><Text theme="h5" uppercase>{props.label}</Text></button>
+      <button 
+        className={classes} 
+        onClick={props.onClick}>
+          <Text theme="h5" uppercase>{props.label}</Text>  
+      </button>
     )
   }
 }
