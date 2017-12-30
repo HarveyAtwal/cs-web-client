@@ -23,7 +23,7 @@ class Text extends React.Component {
     
     let classes = classNames("text", props.className, {
       "text--display": props.theme === "display",
-      "text--header": props.theme === "header",
+      "text--header": props.theme === "header-icon",
       "text--h1": props.theme === "h1",
       "text--h2": props.theme === "h2",
       "text--h3": props.theme === "h3",

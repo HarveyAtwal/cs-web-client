@@ -13,7 +13,7 @@ import Text from 'components/text'
 import { pathnames } from 'routes'
 import './styles.scss'
 
-class Signin extends React.Component {
+class SigninPage extends React.Component {
   
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ class Signin extends React.Component {
     
     return (
       <AuthLayout title={props.t('page.signin.title')}>
-        <Card className="authlayout__card">
+        <Card className="authlayout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Input placeholder={props.t("form.password")} type="password"/>
           <Button className="mt--2" label={props.t("page.signin.signin")} onClick={this.login} />
@@ -50,4 +50,4 @@ class Signin extends React.Component {
   }
 }
 
-export default translate()(Signin);
+export default translate()(SigninPage);

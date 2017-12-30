@@ -3,12 +3,27 @@
 
 .card {
   border-radius: $borderRadius;
+  border: 1px solid $border;
   box-sizing: border-box;
   background: $white;
   
   width: 100%;
   
-  &--padded {
-    padding: $p--2;
+  &--borderless {
+    border: none;
+  }
+  
+  &--no-padding {
+    .card__content {
+      padding: 0;
+    }
+  }
+  
+  &__content {
+    padding: $p $p--2;
+  }
+  
+  &__header {
+    border-bottom: 1px solid $border;
   }
 }

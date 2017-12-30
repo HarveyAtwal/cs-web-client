@@ -1,8 +1,38 @@
 export default {
   general: {
-    appName: "ProjectOne",
+    appName: "AltPortfolio",
     signIn: "Sign In",
     signUp: "Sign Up"
+  },
+  
+  widgets: {
+    portfolio: {
+      title: "Your Portfolio",
+    },
+    openTrades: {
+      title: "Your Open Trades",
+    },
+    recentActivity: {
+      title: "Your Recent Activity",
+    },
+    tradeTracker: {
+      title: "Trade Tracker"
+    },
+    profitTracker: {
+      title: "Profit Tracker"
+    },
+    activity: {
+      title: "Your Activity"
+    },
+    reports: {
+      title: "Your Reports"
+    }
+  },
+  
+  avatarDropdown: {
+    "settings": "Settings",
+    "invite": "Invite friends",
+    "signout": "Sign out"
   },
   
   form: {
@@ -20,7 +50,7 @@ export default {
   },
   
   footer: {
-    copy: "© 2017 ProjectOne",
+    copy: "© 2017 AltPortfolio",
     home: "Home",
     privacy: "Privacy Policy",
     terms: "Terms of Service"
@@ -32,7 +62,7 @@ export default {
       description: "We couldn't find the page you requested."
     },
     signin: {
-      title: "Sign into ProjectOne",
+      title: "Sign into AltPortfolio",
       forgotPassword: "Forgot Password?",
       signup: "Don't have an account? Sign up",
       signin: "Sign In"
@@ -46,6 +76,11 @@ export default {
       title: "Forgot Your Password?",
       resetPassword: "Reset Password",
       hasAccount: "Already have an account? Sign in",
+    },
+    settings: {
+      profile: "Profile",
+      password: "Password",
+      apiImport: "API Import"
     }
   }
 }

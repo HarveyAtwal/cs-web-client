@@ -10,7 +10,8 @@
   &__container {
     max-width: $contentWidth;
     margin: 40px auto;
-    padding: $px;
+    padding-left: $p;
+    padding-right: $p;
   }
   
   &__content {

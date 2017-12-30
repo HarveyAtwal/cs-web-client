@@ -13,7 +13,7 @@ import Text from 'components/text'
 
 import './styles.scss'
 
-class Forgot extends React.Component {
+class ForgotPage extends React.Component {
   
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ class Forgot extends React.Component {
     
     return (
       <AuthLayout title={props.t('page.forgot.title')}>
-        <Card className="authlayout__card">
+        <Card className="authlayout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Button className="mt" label={props.t("page.forgot.resetPassword")}/>
         </Card>
@@ -37,4 +37,4 @@ class Forgot extends React.Component {
   }
 }
 
-export default translate()(Forgot);
+export default translate()(ForgotPage);

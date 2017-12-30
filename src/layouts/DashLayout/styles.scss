@@ -9,18 +9,6 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-
-  &__nav {
-    display: flex;
-    background: $white;
-    border-bottom: 1px solid $border; 
-    padding: $px;
-    
-    &__tabs {
-      width: $contentWidth;
-      margin: 0 auto;
-    }
-  }
   
   &__container {
     flex: 1 1 auto;
@@ -35,7 +23,8 @@
     display: flex;
     border-top: 1px solid $border; 
     background: $white;
-    padding: $px;
+    padding-left: $p--2;
+    padding-right: $p--2;
   }
 }
 
@@ -59,7 +48,7 @@
   &__links {
     li {
       display: inline-block;
-      margin-right: $mr--2;
+      margin-right: $m--2;
     }
   }
 }

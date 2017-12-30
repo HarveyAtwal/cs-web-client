@@ -1,5 +1,6 @@
 @import '~sass/colors';
 @import '~sass/variables';
+@import '~sass/vendor/avalanche';
 
 // base class reset
 //
@@ -9,89 +10,122 @@ a {
 }
 
 // util classes
+.rel {
+  position: relative;
+}
 .inline {
   display: inline-block;
 }
 .flex {
   display: flex;
 }
+.pointer {
+  cursor: pointer;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: $overlay;
+}
+.content {
+  max-width: $contentWidth;
+  margin: 0 auto;
+}
+
 
 // gutter classes
+.p {
+  padding: $p;
+}
 .pt {
-  padding-top: $pt;
+  padding-top: $p;
 }
 .pl {
-  padding-left: $pl;
+  padding-left: $p;
 }
 .pb {
-  padding-bottom: $pb;
+  padding-bottom: $p;
 }
 .pr {
-  padding-right: $pr;
+  padding-right: $p;
 }
 .py {
-  padding: $py;
+  padding-top: $p;
+  padding-bottom: $p;
 }
-
+.p--2 {
+  padding: $p--2;
+}
 .pt--2 {
-  padding-top: $pt--2;
+  padding-top: $p--2;
 }
 .pl--2 {
-  padding-left: $pl--2;
+  padding-left: $p--2;
 }
 .pb--2 {
-  padding-bottom: $pb--2;
+  padding-bottom: $p--2;
 }
 .pr--2 {
-  padding-right: $pr--2;
+  padding-right: $p--2;
 }
 .py--2 {
-  padding: $py--2;
+  padding-top: $p--2;
+  padding-bottom: $p--2;
+}
+.px--2 {
+  padding-left: $p--2;
+  padding-right: $p--2;
 }
 
 .mt {
-  margin-top: $mt;
+  margin-top: $m;
 }
 .ml {
-  margin-left: $ml;
+  margin-left: $m;
 }
 .mb {
-  margin-bottom: $mb;
+  margin-bottom: $m;
 }
 .mr {
-  margin-right: $mr;
+  margin-right: $m;
 }
 .my {
-  margin: $my;
+  margin-top: $m;
+  margin-bottom: $m;
 }
 
 .mt--2 {
-  margin-top: $mt--2;
+  margin-top: $m--2;
 }
 .ml--2 {
-  margin-left: $ml--2;
+  margin-left: $m--2;
 }
 .mb--2 {
-  margin-bottom: $mb--2;
+  margin-bottom: $m--2;
 }
 .mr--2 {
-  margin-right: $mr--2;
+  margin-right: $m--2;
 }
 .my--2 {
-  margin: $my--2;
+  margin-top: $m--2;
+  margin-bottom: $m--2;
 }
 
 .mt--3 {
-  margin-top: $mt--3;
+  margin-top: $m--3;
 }
 .ml--3 {
-  margin-left: $ml--3;
+  margin-left: $m--3;
 }
 .mb--3 {
-  margin-bottom: $mb--3;
+  margin-bottom: $m--3;
 }
 .mr--3 {
-  margin-right: $mr--3;
+  margin-right: $m--3;
 }
 
 

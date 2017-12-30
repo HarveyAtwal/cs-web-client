@@ -21,13 +21,15 @@ class Tabs extends React.Component {
       <ul className={classes}>
         {props.items.map((item) => {
           const itemClasses = classNames({
-            "tab__item py--2 inline": true
+            "tab__item py mr--2": true,
+            "text--h4 py--2 mr--3": props.theme === "header",
+            "tab__item inline": true
           });
           
           return (
-            <li className="inline mr--3">
+            <li className="inline">
               <NavLink className={itemClasses} to={item.linkTo} activeClassName="tab__item--active">
-                <Text className="tab__item__content" theme="h4">
+                <Text className="tab__item__content">
                   {item.icon && <Icon type={item.icon} className="mr"  />}
                   {item.name}
                 </Text>

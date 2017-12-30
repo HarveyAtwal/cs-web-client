@@ -10,7 +10,7 @@ import Text from 'components/text'
 
 import { pathnames } from 'routes'
 
-class DashboardPage extends React.Component {
+class ReportsPage extends React.Component {
   
   constructor(props) {
     super(props);
@@ -23,16 +23,8 @@ class DashboardPage extends React.Component {
     return (
       <DashLayout>
         <div className="grid">
-          <div className="1/2--lap-and-up grid__cell mb--2">
-            <Card header={{ title: props.t("widgets.portfolio.title") }}>
-            </Card>
-          </div>
-          <div className="1/2--lap-and-up grid__cell mb--2">
-            <Card header={{ title: props.t("widgets.openTrades.title") }}>
-            </Card>
-          </div>
           <div className="grid__cell mb--2">
-            <Card header={{ title: props.t("widgets.recentActivity.title") }}>
+            <Card header={{ title: props.t("widgets.reports.title") }}>
             </Card>
           </div>
         </div>
@@ -41,4 +33,4 @@ class DashboardPage extends React.Component {
   }
 }
 
-export default translate()(DashboardPage);
+export default translate()(ReportsPage);

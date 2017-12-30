@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { translate } from 'react-polyglot';
 
 import Header from 'components/header'
-import Tabs from 'components/tabs'
 import Text from 'components/text'
 
 import { pathnames } from 'routes'
@@ -11,42 +10,14 @@ import './styles.scss'
 
 class DashLayout extends React.Component {
   
-  renderDashItems = () => {
-    const { props } = this;
-    return [{
-      name: props.t("navigation.dashboard"),
-      icon: "dashboard",
-      linkTo: pathnames.dashboard
-    },{
-      name: props.t("navigation.tracker"),
-      icon: "tracker",
-      linkTo: pathnames.tracker,
-    },{
-      name: props.t("navigation.activity"),
-      icon: "activity",
-      linkTo: pathnames.activity,
-    },{
-      name: props.t("navigation.reports"),
-      icon: "reports",
-      linkTo: pathnames.reports,
-    },{
-      name: props.t("navigation.settings"),
-      icon: "settings",
-      linkTo: pathnames.settings,
-    }]
-  }
-  
   render() {
     const { props } = this;
     
     return (
       <div className='dashlayout'>
         <Header authenticated />
-        <div className="dashlayout__nav">
-          <Tabs className="dashlayout__nav__tabs" items={this.renderDashItems()}/>
-        </div>
         <div className="dashlayout__container">
-          <div className="dashlayout__content py--2">
+          <div className="dashlayout__content p--2">
             {props.children}
           </div>
         </div>
