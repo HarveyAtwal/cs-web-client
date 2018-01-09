@@ -35,7 +35,7 @@ class SigninPage extends React.Component {
         <Card className="authlayout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Input placeholder={props.t("form.password")} type="password"/>
-          <Button className="mt--2" label={props.t("page.signin.signin")} onClick={this.login} />
+          <Button className="mt--2" label={props.t("page.signin.signin")} onClick={this.login} maxWidth />
         </Card>
         <div className="text--center">
           <Link to={pathnames.forgot}>

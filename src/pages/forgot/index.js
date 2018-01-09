@@ -27,7 +27,7 @@ class ForgotPage extends React.Component {
       <AuthLayout title={props.t('page.forgot.title')}>
         <Card className="authlayout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
-          <Button className="mt" label={props.t("page.forgot.resetPassword")}/>
+          <Button className="mt" label={props.t("page.forgot.resetPassword")} maxWidth/>
         </Card>
         <Text theme="h5" color="white" underline center>
           <Link to={pathnames.signin}>{props.t('page.forgot.hasAccount')}</Link>

@@ -28,7 +28,7 @@ class Signup extends React.Component {
         <Card className="authlayout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Input placeholder={props.t("form.password")} type="password"/>
-          <Button className="mt--2" label={props.t("page.signup.createAccount")}/>
+          <Button className="mt--2" label={props.t("page.signup.createAccount")} maxWidth/>
           <Text className="mt" theme="h6" center>
             By registering, you agree to the <Text to={pathnames.privacy}>privacy policy</Text> and <Text to={pathnames.terms}>terms of service</Text>.
           </Text>

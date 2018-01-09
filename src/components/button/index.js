@@ -13,14 +13,16 @@ class Button extends React.Component {
     const { props } = this;
     
     const classes = classNames("button", props.className, {
-      "button--primary": props.theme === "primary"
+      "button--primary": props.theme === "primary",
+      "button--max": props.maxWidth,
+      "button--small": props.small,
     });
     
     return (
       <button 
         className={classes} 
         onClick={props.onClick}>
-          <Text theme="h5" uppercase>{props.label}</Text>  
+          <Text theme="h5" uppercase={props.uppercase}>{props.label}</Text>  
       </button>
     )
   }

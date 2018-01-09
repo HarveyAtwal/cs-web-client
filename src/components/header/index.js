@@ -38,9 +38,9 @@ class Header extends React.Component {
   getNavItems = () => {
     const { props } = this;
     return [{
-      name: props.t("navigation.dashboard"),
-      icon: "dashboard",
-      linkTo: pathnames.dashboard
+      name: props.t("navigation.portfolio"),
+      icon: "portfolio",
+      linkTo: pathnames.portfolio
     },{
       name: props.t("navigation.tracker"),
       icon: "tracker",
@@ -170,9 +170,13 @@ class Header extends React.Component {
           {props.authenticated && this.renderAuthenticatedHeader()}
           {!props.authenticated && this.renderUnauthenticatedHeader()}
         </div>
-        {state.showAvatarDropdown && this.renderAvatarDropdown()}
-        {this.renderNav()}
-        {(state.showAvatarDropdown || state.showNavItems) && <div onClick={this.handleRemoveOverlay} className="overlay"/>}
+        {props.authenticated && (
+          <div>
+            {state.showAvatarDropdown && this.renderAvatarDropdown()}
+            {this.renderNav()}
+            {(state.showAvatarDropdown || state.showNavItems) && <div onClick={this.handleRemoveOverlay} className="overlay"/>}
+          </div>
+        )}
       </div>
     )
   }

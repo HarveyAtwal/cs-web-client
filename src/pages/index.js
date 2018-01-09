@@ -7,7 +7,7 @@ class Index extends React.Component {
   
   render() {
     if(window.isAuthenticated) {
-      return <Redirect to={pathnames.dashboard} />
+      return <Redirect to={pathnames.portfolio} />
     }
     
     return <Redirect to={pathnames.signin} />

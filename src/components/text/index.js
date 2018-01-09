@@ -37,6 +37,7 @@ class Text extends React.Component {
       "text--uppercase": props.uppercase,
       "text--bold": props.bold,
       "text--semi-bold": props.semiBold,
+      "text--regular": props.regular,
     });
     
     if(props.color) {

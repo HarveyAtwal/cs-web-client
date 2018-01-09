@@ -5,15 +5,22 @@ export default {
     signUp: "Sign Up"
   },
   
+  holding: {
+    symbol: "Symbol",
+    date: "Date",
+    quantity: "Quantity",
+    price: "Price",
+    total: "Total",
+    marketPrice: "Market Price",
+    marketTotal: "Market Total",
+    gain: "Gain"
+  },
+  
   widgets: {
-    portfolio: {
-      title: "Your Portfolio",
-    },
-    openTrades: {
-      title: "Your Open Trades",
-    },
-    recentActivity: {
-      title: "Your Recent Activity",
+    positions: {
+      title: "Your Open Positions",
+      empty: "You have no open positions",
+      openPosition: "Open Position",
     },
     tradeTracker: {
       title: "Trade Tracker"
@@ -42,7 +49,7 @@ export default {
   },
   
   navigation: {
-    "dashboard": "Dashboard",
+    "portfolio": "Portfolio",
     "tracker": "Tracker",
     "activity": "Activity",
     "reports": "Reports",

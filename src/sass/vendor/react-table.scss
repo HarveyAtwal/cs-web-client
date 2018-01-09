@@ -1,0 +1,29 @@
+@import '~sass/colors';
+
+.ReactTable {
+  border: none;
+  
+  .rt-thead.-header {
+    background: $tableHeader;
+    box-shadow: none;
+    border-bottom: 1px solid $border;
+    
+    .rt-th {
+      padding: $p $p--2;
+    }
+    
+    .rt-tr {
+      text-align: left;
+    }
+  }
+  
+  .rt-tbody {
+    .rt-tr .rt-td {
+      padding: $p $p--2;
+    }
+  }
+  
+  .pagination-bottom .-pagination {
+    box-shadow: none;
+  }
+}

@@ -17,7 +17,7 @@ class DashLayout extends React.Component {
       <div className='dashlayout'>
         <Header authenticated />
         <div className="dashlayout__container">
-          <div className="dashlayout__content p--2">
+          <div className="dashlayout__content">
             {props.children}
           </div>
         </div>

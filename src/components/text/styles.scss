@@ -50,10 +50,13 @@
     text-transform: uppercase;
   }
   
+  &--regular {
+    font-weight: 400;
+  }
   &--semi-bold {
-    font-weight: 500;
+    font-weight: 600;
   }
   &--bold {
-    font-weight: 600;
+    font-weight: 700;
   }
 }

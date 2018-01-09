@@ -4,9 +4,8 @@
 .button {
   box-sizing: border-box;
   border-radius: $inputBorderRadius;
-  width: 100%;
-  
-  padding: $p;
+
+  padding: $p $p--2;
   
   border: none;
   outline: none;
@@ -19,5 +18,14 @@
     &:hover {
       background: $primary;
     }
+  }
+  
+  
+  
+  &--small {
+    max-width: $buttonSmallWidth;
+  }
+  &--max {
+    width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import Index from './pages/index'
-import Dashboard from './pages/dashboard'
+import Portfolio from './pages/portfolio'
 import Tracker from './pages/tracker'
 import TrackerProfits from './pages/tracker/profits'
 import TrackerTrades from './pages/tracker/trades'
@@ -23,7 +23,7 @@ const pathnames = {
   forgot: '/forgot',
   terms: '/terms',
   privacy: '/privacy',
-  dashboard: '/dashboard',
+  portfolio: '/portfolio',
   tracker: {
     index: '/tracker',
     trades: '/tracker/trades',
@@ -53,9 +53,9 @@ const routes = [{
   path: pathnames.forgot,
   component: Forgot
 }, { 
-  path: pathnames.dashboard,
+  path: pathnames.portfolio,
   protected: false,
-  component: Dashboard
+  component: Portfolio
 }, { 
   path: pathnames.tracker.index,
   protected: false,

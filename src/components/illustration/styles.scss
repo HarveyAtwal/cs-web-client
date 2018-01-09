@@ -1,0 +1,11 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.illustration {
+  text-align: center;
+  
+  &--padded {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}

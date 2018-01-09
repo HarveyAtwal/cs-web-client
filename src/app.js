@@ -9,6 +9,7 @@ import {
 import { RouteWithSubRoutes } from 'components/router'
 import routes from 'routes'
 import strings from 'il8n';
+import 'react-table/react-table.css'
 import 'core/main'
 import 'sass/util.scss'
 
