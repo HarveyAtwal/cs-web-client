@@ -72,7 +72,8 @@ export default {
       title: "Sign into AltPortfolio",
       forgotPassword: "Forgot Password?",
       signup: "Don't have an account? Sign up",
-      signin: "Sign In"
+      signin: "Sign In",
+      invalid: "Invalid email or password. If you're having trouble signing in, try clicking 'Forgot Password"
     },
     signup: {
       title: "Create Your Account",

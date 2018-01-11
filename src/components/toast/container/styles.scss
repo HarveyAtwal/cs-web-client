@@ -1,0 +1,49 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.toast-container {
+  width: auto;
+  top: 25px;
+  
+  &__body {
+    margin-right: $m;
+  }
+  
+  .toast { 
+    border-radius: $borderRadius;
+    line-height: 1.4;
+    font-family: $fontFamily;
+    padding: 15px;
+    min-height: 0;
+    box-shadow: none;
+    max-width: 700px;
+    
+    &--error {
+      background: $toastErrorBackground;
+      color: $toastErrorColor;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    }
+  }
+  
+  button {
+    align-self: center;
+    color: #333;
+  }
+  
+  
+  @include av-mq("pocket") {
+    transform: translateX(0);
+    top: 0;
+    padding: 0;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    
+    .toast {
+      max-width: 100%;
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+  }
+}

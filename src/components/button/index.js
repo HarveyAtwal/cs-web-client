@@ -21,8 +21,11 @@ class Button extends React.Component {
     return (
       <button 
         className={classes} 
+        disabled={props.disabled}
         onClick={props.onClick}>
-          <Text theme="h5" uppercase={props.uppercase}>{props.label}</Text>  
+          <Text theme="h5" uppercase={props.uppercase}>
+            {props.loading && <i class="fa fa-circle-o-notch fa-spin"></i>} {props.label}
+          </Text>  
       </button>
     )
   }

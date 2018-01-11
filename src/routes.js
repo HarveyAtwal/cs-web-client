@@ -10,6 +10,7 @@ import SettingsProfile from './pages/settings/profile'
 import SettingsPassword from './pages/settings/password'
 import SettingsApiImport from './pages/settings/api'
 import Signin from './pages/signin'
+import Signout from './pages/signout'
 import Signup from './pages/signup'
 import Forgot from './pages/forgot'
 import NoMatch from './pages/404'
@@ -49,6 +50,9 @@ const routes = [{
 }, { 
   path: pathnames.signup,
   component: Signup
+}, { 
+  path: pathnames.signout,
+  component: Signout
 }, { 
   path: pathnames.forgot,
   component: Forgot

@@ -32,7 +32,8 @@ class SigninPage extends React.Component {
     });
   }
 
-  login = () => {
+  login = (e) => {
+    e.preventDefault();
     const { state } = this;
     this.props.authSignin(state.emailAddress, state.password);
   }
@@ -48,25 +49,29 @@ class SigninPage extends React.Component {
     return (
       <AuthLayout title={props.t('page.signin.title')}>
         <Card className="authlayout__card" theme="borderless" noPadding>
-          <Input className="mb" 
-            placeholder={props.t("form.emailAddress")} 
-            type="email" 
-            name="emailAddress" 
-            value={state.emailAddress} 
-            onChange={this.handleInputChange}
-            disabled={auth.isAuthenticating}
-            autoFocus />
-          <Input placeholder={props.t("form.password")} 
-            type="password" 
-            name="password" 
-            value={state.password}
-            disabled={auth.isAuthenticating}
-            onChange={this.handleInputChange} />
-          <Button className="mt--2" 
-            label={props.t("page.signin.signin")} 
-            onClick={this.login} 
-            maxWidth
-            disabled={auth.isAuthenticating} />
+          <form onSubmit={this.login}>
+            <Input className="mb" 
+              placeholder={props.t("form.emailAddress")} 
+              type="email" 
+              name="emailAddress" 
+              value={state.emailAddress} 
+              onChange={this.handleInputChange}
+              disabled={auth.isAuthenticating}
+              autoFocus />
+            <Input placeholder={props.t("form.password")} 
+              type="password" 
+              name="password" 
+              value={state.password}
+              disabled={auth.isAuthenticating}
+              onChange={this.handleInputChange} />
+            <Button className="mt--2" 
+              type="submit"
+              label={auth.isAuthenticating ? "" : props.t("page.signin.signin")} 
+              onClick={this.login} 
+              maxWidth
+              loading={auth.isAuthenticating}
+              disabled={auth.isAuthenticating} />
+          </form>
         </Card>
         <div className="text--center">
           <Link to={pathnames.forgot}>

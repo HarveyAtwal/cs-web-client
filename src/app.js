@@ -1,21 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { combineReducers, createStore } from 'redux'
+
 import { I18n } from 'react-polyglot';
+
+import { Provider, connect } from 'react-redux'
+import { combineReducers, createStore, bindActionCreators } from 'redux'
+
 import {
   BrowserRouter as Router,
   Switch
 } from 'react-router-dom'
 
+import ToastContainer from 'components/toast/container'
+import { RouteWithSubRoutes } from 'components/router'
+
 import stores from 'stores';
 import middleware from 'middleware';
-import { RouteWithSubRoutes } from 'components/router'
 import routes from 'routes'
 import strings from 'il8n';
+
 import 'react-table/react-table.css'
 import 'sass/util.scss'
-
 
 const store = createStore(stores, middleware);
 
@@ -31,11 +36,13 @@ class Application extends React.Component {
     return (
       <Provider store={store}>
         <I18n locale={state.locale} messages={strings[state.locale]}>
-          <Router>
-            <Switch>
-              {routes.map((route, i) => <RouteWithSubRoutes key={i} {...routes[i]} /> )}
-            </Switch>
-          </Router>
+          <ToastContainer>
+            <Router>
+                <Switch>
+                  {routes.map((route, i) => <RouteWithSubRoutes key={i} {...routes[i]} /> )}
+                </Switch>
+            </Router>
+          </ToastContainer>
         </I18n>
       </Provider>
     )
