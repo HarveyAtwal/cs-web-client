@@ -1,9 +1,11 @@
 import _ from 'lodash'
 import React from 'react'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 import { translate } from 'react-polyglot';
-import { Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
-import dispatcher from 'core/dispatcher'
+import * as authActions from 'stores/auth';
 import AuthLayout from 'layouts/AuthLayout'
 import Input from 'components/input'
 import Button from 'components/button'
@@ -15,27 +17,56 @@ import './styles.scss'
 
 class SigninPage extends React.Component {
   
-  constructor(props) {
-    super(props);
-    _.extend(this, dispatcher);
+  state = {
+    emailAddress: "",
+    password: ""
   }
 
-  login = () => {
-    this.publish("auth:signin", {
-      username: "hello",
-      password: "hello"
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
     });
   }
 
+  login = () => {
+    const { state } = this;
+    this.props.authSignin(state.emailAddress, state.password);
+  }
+
   render() {
-    const { props } = this;
+    const { props, state } = this;
+    const { auth } = props;
+    
+    if(auth.isAuthenticated) {
+      return <Redirect to={pathnames.portfolio} />
+    }
     
     return (
       <AuthLayout title={props.t('page.signin.title')}>
         <Card className="authlayout__card" theme="borderless" noPadding>
-          <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
-          <Input placeholder={props.t("form.password")} type="password"/>
-          <Button className="mt--2" label={props.t("page.signin.signin")} onClick={this.login} maxWidth />
+          <Input className="mb" 
+            placeholder={props.t("form.emailAddress")} 
+            type="email" 
+            name="emailAddress" 
+            value={state.emailAddress} 
+            onChange={this.handleInputChange}
+            disabled={auth.isAuthenticating}
+            autoFocus />
+          <Input placeholder={props.t("form.password")} 
+            type="password" 
+            name="password" 
+            value={state.password}
+            disabled={auth.isAuthenticating}
+            onChange={this.handleInputChange} />
+          <Button className="mt--2" 
+            label={props.t("page.signin.signin")} 
+            onClick={this.login} 
+            maxWidth
+            disabled={auth.isAuthenticating} />
         </Card>
         <div className="text--center">
           <Link to={pathnames.forgot}>
@@ -50,4 +81,12 @@ class SigninPage extends React.Component {
   }
 }
 
-export default translate()(SigninPage);
+const mapStateToProps = (state) => ({ 
+  auth: state.auth 
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(authActions, dispatch)
+}
+
+export default translate()(connect(mapStateToProps, mapDispatchToProps)(SigninPage));

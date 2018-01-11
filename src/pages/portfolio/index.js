@@ -1,24 +1,11 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
-import { Link } from 'react-router-dom'
 
-import dispatcher from 'core/dispatcher'
 import DashLayout from 'layouts/DashLayout'
-import Card from 'components/card'
-import Text from 'components/text'
-import Icon from 'components/icon'
 import Metric from 'widgets/metric'
 import Positions from 'widgets/positions'
 
-import { pathnames } from 'routes'
-
 class PortfolioPage extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    _.extend(this, dispatcher);
-  }
   
   getPositions() {
     return [{

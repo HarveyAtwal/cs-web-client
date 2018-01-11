@@ -3,7 +3,6 @@ import React from 'react'
 import { translate } from 'react-polyglot';
 import { Link, Redirect } from 'react-router-dom'
 
-import dispatcher from 'core/dispatcher'
 import DashLayout from 'layouts/DashLayout'
 import Card from 'components/card'
 import Text from 'components/text'
@@ -12,11 +11,6 @@ import { RouteWithSubRoutes } from 'components/router'
 import { pathnames } from 'routes'
 
 class TrackerPage extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    _.extend(this, dispatcher);
-  }
   
   buildTrackerTabs() {
     const { props } = this;

@@ -54,11 +54,11 @@ const routes = [{
   component: Forgot
 }, { 
   path: pathnames.portfolio,
-  protected: false,
+  protected: true,
   component: Portfolio
 }, { 
   path: pathnames.tracker.index,
-  protected: false,
+  protected: true,
   component: Tracker,
   routes: [{
     path: pathnames.tracker.trades,
@@ -69,15 +69,15 @@ const routes = [{
   }]
 }, { 
   path: pathnames.activity,
-  protected: false,
+  protected: true,
   component: Activity
 }, { 
   path: pathnames.reports,
-  protected: false,
+  protected: true,
   component: Reports
 }, { 
   path: pathnames.settings.index,
-  protected: false,
+  protected: true,
   component: Settings,
   routes: [{
     path: pathnames.settings.profile,

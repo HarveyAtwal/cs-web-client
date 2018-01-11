@@ -4,7 +4,6 @@ import { translate } from 'react-polyglot';
 import { Link } from 'react-router-dom'
 
 import { pathnames } from 'routes';
-import dispatcher from 'core/dispatcher'
 import AuthLayout from 'layouts/AuthLayout'
 import Button from 'components/button'
 import Input from 'components/input'
@@ -14,11 +13,6 @@ import Text from 'components/text'
 import './styles.scss'
 
 class Signup extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    _.extend(this, dispatcher);
-  }
 
   render() {
     const { props } = this;

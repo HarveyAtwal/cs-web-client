@@ -1,14 +1,18 @@
 import React from 'react'
 import { pathnames } from 'routes'
+import { connect } from 'react-redux'
 import {
   Route,
   Redirect,
 } from 'react-router-dom'
 
-const PrivateRoute = (route) => (
-  <Route {...route} render={(props) => {
-    if(window.isAuthenticated) {
-      return route.render ? route.render() : <route.component {...props} />;
+
+const mapStateToProps = (state) => ({ auth: state.auth });
+const PrivateRoute = connect(mapStateToProps)((routeProps) => (
+  
+  <Route {...routeProps} render={(props) => {
+    if(routeProps.auth.isAuthenticated) {
+      return routeProps.render ? routeProps.render() : <routeProps.component {...props} />;
     }
     
     return (
@@ -18,7 +22,8 @@ const PrivateRoute = (route) => (
       }} />
     )
   }} />
-)
+))
+
 
 
 // pass the sub-routes down to keep nesting
@@ -33,6 +38,7 @@ const RouteWithSubRoutes = (route) => {
     }} />
   );
 }
+
 
 export {
   PrivateRoute,

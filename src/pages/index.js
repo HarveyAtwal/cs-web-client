@@ -1,12 +1,14 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
+import { connect } from 'react-redux'
 import { pathnames } from 'routes';
 
 class Index extends React.Component {
   
   render() {
-    if(window.isAuthenticated) {
+    const { auth } = this.props;
+    if(auth.isAuthenticated) {
       return <Redirect to={pathnames.portfolio} />
     }
     
@@ -14,4 +16,8 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+const mapStateToProps = (state) => ({ 
+  auth: state.auth 
+});
+
+export default connect(mapStateToProps)(Index);
