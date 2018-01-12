@@ -36,7 +36,7 @@ const pathnames = {
     index: '/settings',
     profile: '/settings/profile',
     password: '/settings/password',
-    apiImport: '/settings/api/import',
+    api: '/settings/api'
   }
 }
 
@@ -90,7 +90,7 @@ const routes = [{
     path: pathnames.settings.password,
     component: SettingsPassword
   }, { 
-    path: pathnames.settings.apiImport,
+    path: pathnames.settings.api,
     component: SettingsApiImport
   }]
 }, {

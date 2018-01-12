@@ -86,9 +86,20 @@ export default {
       hasAccount: "Already have an account? Sign in",
     },
     settings: {
-      profile: "Profile",
-      password: "Password",
-      apiImport: "API Import"
+      profile: {
+        title: "Profile",
+        accountProfile: "Account Profile"
+      },
+      password: {
+        title: "Password",
+        currentPassword: "Current password",
+        newPassword: "New password",
+        verifyPassword: "Verify password",
+        changePassword: "Change Password"
+      },
+      api: {
+        title: "APIs",
+      }
     }
   }
 }

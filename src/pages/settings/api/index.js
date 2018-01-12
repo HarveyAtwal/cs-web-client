@@ -1,17 +1,21 @@
 import React from 'react'
 import { translate } from 'react-polyglot';
 import Text from 'components/text'
+import Divider from 'components/divider'
 
 
-class ProfitsPage extends React.Component {
+class ApiPage extends React.Component {
 
   render() {
     const { props } = this;
     
     return (
-      <div>api</div>
+      <div className="my">
+        <Text className="mb" theme="h3" block>{props.t("page.settings.api.title")}</Text>
+        <Divider className="mb--2" />
+      </div>
     )
   }
 }
 
-export default translate()(ProfitsPage);
+export default translate()(ApiPage);

@@ -9,10 +9,9 @@ import {
 
 const mapStateToProps = (state) => ({ auth: state.auth });
 const PrivateRoute = connect(mapStateToProps)((routeProps) => (
-  
   <Route {...routeProps} render={(props) => {
     if(routeProps.auth.isAuthenticated) {
-      return routeProps.render ? routeProps.render() : <routeProps.component {...props} />;
+      return routeProps.render ? routeProps.render(props) : <routeProps.component {...props} />;
     }
     
     return (

@@ -36,7 +36,7 @@ export const authSignin = (emailAddress, password) => (dispatch) => {
 //- State
 const initialState = {
   isAuthenticating: false,
-  isAuthenticated: false,
+  isAuthenticated: true,
   user: null
 }
 

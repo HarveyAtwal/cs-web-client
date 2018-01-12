@@ -20,6 +20,7 @@
     
     &--error {
       background: $toastErrorBackground;
+      border: 1px solid darken($toastErrorBackground, 10);
       color: $toastErrorColor;
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     }
