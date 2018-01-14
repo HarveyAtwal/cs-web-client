@@ -1,11 +1,12 @@
 import React from 'react'
 import classNames from 'classnames';
-import ReactTable from 'react-table'
 
 import { translate } from 'react-polyglot';
 import Card from 'components/card'
 import Text from 'components/text'
+import Table from 'components/table'
 import Illustration from 'components/illustration'
+
 import './styles.scss'
 
 class PositionsWidget extends React.Component {
@@ -63,7 +64,7 @@ class PositionsWidget extends React.Component {
     const { positions } = this.props;
     
     return (
-      <ReactTable
+      <Table
         columns={this.buildColumns()}
         data={positions}
         defaultPageSize={10}

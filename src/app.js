@@ -19,7 +19,6 @@ import middleware from 'middleware';
 import routes from 'routes'
 import strings from 'il8n';
 
-import 'react-table/react-table.css'
 import 'sass/util.scss'
 
 const store = createStore(stores, middleware);

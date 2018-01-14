@@ -22,6 +22,7 @@ class Text extends React.Component {
     const { props } = this;
     
     let classes = classNames("text", props.className, {
+      "text--avatar-upload": props.theme === "avatar-upload",
       "text--display": props.theme === "display",
       "text--header": props.theme === "header-icon",
       "text--h1": props.theme === "h1",

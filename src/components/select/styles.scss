@@ -1,0 +1,21 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+
+.select {
+  
+  .Select-control {
+    border: 1px solid $inputBorder;
+    border-radius: $inputBorderRadius;
+    color: $primaryText;
+    height: auto;;
+  }
+  
+  .Select-placeholder, .Select-value {
+    line-height: $inputLineHeight !important;
+  }
+  
+  .Select-input {
+    height: auto;
+  }
+}

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-polyglot';
 
+import Avatar from 'components/avatar';
 import Text from 'components/text';
 import Tabs from 'components/tabs'
 import Icon from 'components/icon';
@@ -135,7 +136,7 @@ class Header extends React.Component {
         {this.renderLogo()}
         <div className="header__avatar">
           <div className="pointer" onClick={this.handleTriggerAvatarDropdown}>
-            <Text theme="header-icon"><Icon type="avatar" /></Text>
+            <Avatar size="header-icon" />
           </div>
         </div>
       </div>

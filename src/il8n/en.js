@@ -63,6 +63,15 @@ export default {
     terms: "Terms of Service"
   },
   
+  user: {
+    username: "Username",
+    email: "Email",
+    currency: "Local currency",
+    accumulatingCurrency: "Accumulating currency",
+    language: "Language",
+    timeZone: "Time zone",  
+  },
+  
   page: {
     "404": {
       title: "Page Not Found",
@@ -88,7 +97,9 @@ export default {
     settings: {
       profile: {
         title: "Profile",
-        accountProfile: "Account Profile"
+        accountProfile: "Account Profile",
+        deleteAccount: "Delete Account",
+        saveChanges: "Save Changes"
       },
       password: {
         title: "Password",

@@ -1,13 +1,16 @@
 import React from 'react'
 import classNames from 'classnames';
-import './styles.scss'
+
+import ReactSelect from 'react-select';
+import 'react-select/dist/react-select.css';
 
 import Text from 'components/text'
+import './styles.scss'
 
-class Input extends React.Component {
+class Select extends React.Component {
   
   renderLabel() {
-    // any changes to this label should be reflected in the select component as well
+    // any changes to this label should be reflected in the input component as well
     const { props } = this;
     
     if(!props.label) {
@@ -16,17 +19,16 @@ class Input extends React.Component {
     
     return <Text className="input__label" theme="h5" block semiBold>{props.label}</Text>
   }
-  
+
   render() {
     const { props } = this;
     
-    const classes = classNames("input", props.className, {});
-    
+    const classes = classNames("select", props.className, {});
     return [
       this.renderLabel(),
-      <input {...props} className={classes} />
+      <ReactSelect {...props} className={classes} />
     ]
   }
 }
 
-export default Input
+export default Select

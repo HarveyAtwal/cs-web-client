@@ -2,6 +2,9 @@
 @import "~sass/variables";
 
 .text {
+  &--avatar-upload {
+    font-size: 72px;
+  }
   &--display {
     font-size: 42px;
     letter-spacing: 8px;
