@@ -12,7 +12,25 @@ import './styles.scss'
 class PositionsWidget extends React.Component {
   
   state = {
-    positions: []
+    positions: [{
+      symbol: "REQ/BTC",
+      date: "01-01-2018 15:02:49",
+      quantity: 6464,
+      price: 	0.00006048,
+      total: 0.39094272,
+      marketPrice: 0.00006228,
+      marketTotal: 0.42094272,
+      gain: ''
+    }, {
+      symbol: "BTC/USDT",
+      date: "01-01-2018 12:43:15",
+      quantity: 0.392179,
+      price: 13451.99,
+      total: 5275.59,
+      marketPrice: 13760.00,
+      marketTotal: 5395.29,
+      gain: ''
+    }]
   }
   
   buildColumns() {
@@ -61,7 +79,7 @@ class PositionsWidget extends React.Component {
   }
   
   renderTable() {
-    const { positions } = this.props;
+    const { positions } = this.state;
     
     return (
       <Table
@@ -74,9 +92,9 @@ class PositionsWidget extends React.Component {
   }
   
   renderContent() {
-    const { props } = this;
+    const { state } = this;
     
-    if(props.positions.length === 0) {
+    if(state.positions.length === 0) {
       return this.renderEmptyIllustration();
     }
     

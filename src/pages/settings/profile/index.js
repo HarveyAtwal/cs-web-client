@@ -67,7 +67,7 @@ class ProfilePage extends React.Component {
         <Divider className="mb--2" />
         
         <div className="center mb">
-          <Text className="input__label" theme="h5" block semiBold>Profile Photo</Text>
+          <Text className="input__label" theme="h5" block semiBold>{props.t("user.profilePhoto")}</Text>
           <Avatar size="avatar-upload" />
         </div>
         

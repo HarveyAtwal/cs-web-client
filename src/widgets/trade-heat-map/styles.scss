@@ -1,0 +1,14 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.trade-hm {
+  &__calendar {
+    width: 100%;
+  }
+  
+  &__text {
+    font-size: 11px;
+    alignment-baseline: central;
+    fill: $secondaryText;
+  }
+}

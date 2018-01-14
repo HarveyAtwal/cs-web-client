@@ -51,10 +51,6 @@ class Header extends React.Component {
       icon: "activity",
       linkTo: pathnames.activity,
     },{
-      name: props.t("navigation.reports"),
-      icon: "reports",
-      linkTo: pathnames.reports,
-    },{
       name: props.t("navigation.settings"),
       icon: "settings",
       linkTo: pathnames.settings.index,

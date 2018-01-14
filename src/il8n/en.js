@@ -33,6 +33,9 @@ export default {
     },
     reports: {
       title: "Your Reports"
+    },
+    tradeHeatMap: {
+      title: "Trade Heat Map"
     }
   },
   
@@ -69,7 +72,8 @@ export default {
     currency: "Local currency",
     accumulatingCurrency: "Accumulating currency",
     language: "Language",
-    timeZone: "Time zone",  
+    timeZone: "Time zone", 
+    profilePhoto: "Profile Photo"
   },
   
   page: {
