@@ -85,7 +85,7 @@ class PositionsWidget extends React.Component {
       <Table
         columns={this.buildColumns()}
         data={positions}
-        defaultPageSize={10}
+        defaultPageSize={5}
         showPagination={false}
       />
     )

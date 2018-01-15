@@ -47,16 +47,17 @@ class TradeHeatMap extends React.Component {
       }
     }
     
+    this.resizeHandler = this.handleResize.bind(this);
     this.state.trades = values;
   }
   
   componentDidMount() {
-    window.addEventListener("resize", this.handleResize.bind(this));
+    window.addEventListener("resize", this.resizeHandler);
     this.handleResize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize.bind(this));
+    window.removeEventListener("resize", this.resizeHandler);
   }
   
   handleResize() {
