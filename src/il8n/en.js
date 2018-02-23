@@ -36,6 +36,9 @@ export default {
     },
     tradeHeatMap: {
       title: "Trade Heat Map"
+    },
+    portfolioWeight: {
+      title: "Portfolio Weight"
     }
   },
   
