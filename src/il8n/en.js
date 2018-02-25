@@ -4,7 +4,12 @@ export default {
     signIn: "Sign In",
     signUp: "Sign Up"
   },
-  
+
+  legal: {
+    privacy: "Privacy Policy",
+    terms: "Terms of Service"
+  },
+
   holding: {
     symbol: "Symbol",
     date: "Date",
@@ -15,7 +20,7 @@ export default {
     marketTotal: "Market Total",
     gain: "Gain"
   },
-  
+
   widgets: {
     positions: {
       title: "Your Open Positions",
@@ -41,19 +46,19 @@ export default {
       title: "Portfolio Weight"
     }
   },
-  
+
   avatarDropdown: {
     "settings": "Settings",
     "invite": "Invite friends",
     "signout": "Sign out"
   },
-  
+
   form: {
     emailAddress: "Email Address",
     password: "Password",
     verifyPassword: "Verify Password",
   },
-  
+
   navigation: {
     "portfolio": "Portfolio",
     "tracker": "Tracker",
@@ -61,24 +66,22 @@ export default {
     "reports": "Reports",
     "settings": "Settings",
   },
-  
+
   footer: {
     copy: "© 2017 AltPortfolio",
-    home: "Home",
-    privacy: "Privacy Policy",
-    terms: "Terms of Service"
+    home: "Home"
   },
-  
+
   user: {
     username: "Username",
     email: "Email",
     currency: "Local currency",
     accumulatingCurrency: "Accumulating currency",
     language: "Language",
-    timeZone: "Time zone", 
+    timeZone: "Time zone",
     profilePhoto: "Profile Photo"
   },
-  
+
   page: {
     "404": {
       title: "Page Not Found",
@@ -94,7 +97,8 @@ export default {
     signup: {
       title: "Create Your Account",
       hasAccount: "Already have an account? Sign in",
-      createAccount: "Create Account"
+      createAccount: "Create Account",
+      registerPolicy: `By registering, you agree to the %{privacyPolicy} and %{tos}`
     },
     forgot: {
       title: "Forgot Your Password?",
