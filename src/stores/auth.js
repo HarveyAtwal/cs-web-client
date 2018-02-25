@@ -36,35 +36,35 @@ export const authSignin = (emailAddress, password) => (dispatch) => {
 //- State
 const initialState = {
   isAuthenticating: false,
-  isAuthenticated: true,
+  isAuthenticated: false,
   user: null
 }
 
 //- Reducers
 export default handleActions({
-  
+
   AUTH_SIGNIN_LOADING: (state, action) => ({
     ...state, isAuthenticating: true
   }),
-  
+
   AUTH_SIGNIN_SUCCESS: (state, action) => ({
-    ...state, 
+    ...state,
     user: { ...action.payload },
     isAuthenticating: false,
     isAuthenticated: true
   }),
-  
+
   AUTH_SIGNOUT: (state, action) => ({
-    ...state, 
+    ...state,
     isAuthenticated: false
   }),
-  
+
   ERROR: (state, action) => ({
-    ...state, 
+    ...state,
     isAuthenticated: false,
     isAuthenticating: false,
   }),
-  
+
 }, initialState)
 
 //- Selectors
