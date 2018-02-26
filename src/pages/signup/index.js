@@ -61,19 +61,19 @@ class SignupPage extends React.Component {
     let error = "page.signup.invalid";
 
     if(message === `"email" is not allowed to be empty`) {
-      error = "page.signup.error.emptyEmailField";
+      error = "error.emptyEmailField";
     }
 
     if(message === `"email" must be a valid email`) {
-      error = "page.signup.error.invalidEmail";
+      error = "error.invalidEmail";
     }
 
     if(message === `"password" is not allowed to be empty`) {
-      error = "page.signup.error.emptyPasswordField";
+      error = "error.emptyPasswordField";
     }
 
     if(message === "Already registered") {
-      error = "page.signup.error.accountExists";
+      error = "error.accountExists";
     }
 
     return <Text className="mb--2" error center>{this.props.t(error)}</Text>
@@ -114,6 +114,7 @@ class SignupPage extends React.Component {
               onChange={this.handleInputChange} />
             <Button className="mt--2"
               label={props.t("page.signup.createAccount")}
+              loading={auth.isRegistering}
               disabled={auth.isRegistering}
               maxWidth />
           </form>

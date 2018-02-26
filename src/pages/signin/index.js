@@ -21,9 +21,18 @@ class SigninPage extends React.Component {
   constructor(props) {
     super(props);
 
+    const emailAddress = queryString.parse(props.location.search).email;
+
     this.state = {
-      emailAddress: queryString.parse(props.location.search).email || "",
-      password: ""
+      emailAddress: emailAddress || "",
+      password: "",
+      passwordFocus: emailAddress ? true : false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.auth.loginError) {
+      this.emailAddressField.focus();
     }
   }
 
@@ -43,6 +52,36 @@ class SigninPage extends React.Component {
     this.props.authSignin(state.emailAddress, state.password);
   }
 
+  renderError() {
+    const { auth } = this.props;
+    const loginError = auth.loginError;
+
+    if(!loginError) {
+      return null;
+    }
+
+    const { message, status } = loginError;
+    let error = "page.signin.invalid";
+
+    if(message === `"email" is not allowed to be empty`) {
+      error = "error.emptyEmailField";
+    }
+
+    if(message === `"email" must be a valid email`) {
+      error = "error.invalidEmail";
+    }
+
+    if(message === `"password" is not allowed to be empty`) {
+      error = "error.emptyPasswordField";
+    }
+
+    if(status === `notauthorized`) {
+      return null;
+    }
+
+    return <Text className="mb--2" error center>{this.props.t(error)}</Text>
+  }
+
   render() {
     const { props, state } = this;
     const { auth } = props;
@@ -54,8 +93,10 @@ class SigninPage extends React.Component {
     return (
       <AuthLayout title={props.t('page.signin.title')}>
         <Card className="authlayout__card" theme="borderless" noPadding>
+          {this.renderError()}
           <form onSubmit={this.login}>
             <Input className="mb"
+              ref={ (c) => this.emailAddressField = c }
               placeholder={props.t("form.emailAddress")}
               type="email"
               name="emailAddress"
@@ -68,7 +109,8 @@ class SigninPage extends React.Component {
               name="password"
               value={state.password}
               disabled={auth.isAuthenticating}
-              onChange={this.handleInputChange} />
+              onChange={this.handleInputChange}
+              autoFocus={state.passwordFocus} />
             <Button className="mt--2"
               type="submit"
               label={auth.isAuthenticating ? "" : props.t("page.signin.signin")}

@@ -10,6 +10,13 @@ export default {
     terms: "Terms of Service"
   },
 
+  error: {
+    emptyEmailField: "Missing email address field",
+    emptyPasswordField: "Missing password field",
+    invalidEmail: "Invalid email address entered",
+    accountExists: "An account already exists with that email address"
+  },
+
   holding: {
     symbol: "Symbol",
     date: "Date",
@@ -100,13 +107,7 @@ export default {
       createAccount: "Create Account",
       registerPolicy: `By registering, you agree to the %{privacyPolicy} and %{tos}`,
       invalid: "Failed to register, please try again.",
-      invitationSent: "We just sent an activation email to %{email}. Please click the link in the email to get started.",
-      error: {
-        emptyEmailField: "Missing email address field",
-        emptyPasswordField: "Missing password field",
-        invalidEmail: "Invalid email address entered",
-        accountExists: "An account already exists with that email address"
-      }
+      invitationSent: "We just sent an activation email to %{email}. Please click the link in the email to get started."
     },
     forgot: {
       title: "Forgot Your Password?",
