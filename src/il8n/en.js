@@ -98,7 +98,15 @@ export default {
       title: "Create Your Account",
       hasAccount: "Already have an account? Sign in",
       createAccount: "Create Account",
-      registerPolicy: `By registering, you agree to the %{privacyPolicy} and %{tos}`
+      registerPolicy: `By registering, you agree to the %{privacyPolicy} and %{tos}`,
+      invalid: "Failed to register, please try again.",
+      invitationSent: "We just sent an activation email to %{email}. Please click the link in the email to get started.",
+      error: {
+        emptyEmailField: "Missing email address field",
+        emptyPasswordField: "Missing password field",
+        invalidEmail: "Invalid email address entered",
+        accountExists: "An account already exists with that email address"
+      }
     },
     forgot: {
       title: "Forgot Your Password?",

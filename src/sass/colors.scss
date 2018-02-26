@@ -14,10 +14,16 @@ $inputOutline: #68a4da;
 
 $primaryText: #242729;
 $secondaryText: #6a737c;
+$errorText: #f26373;
 $hintText: $divider;
 
 $tableHeader: #f9fafb;
 
+$disabledBackground: #e0e1e2;
+$disabledOpacity: 0.45;
+
 // toast
 $toastErrorBackground: #f2dede;
 $toastErrorColor: #b94a48;
+$toastSuccessBackground: #dff0d8;
+$toastSuccessColor: #468847;

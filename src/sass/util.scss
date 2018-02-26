@@ -136,7 +136,7 @@ a {
 
 
 //
-// Color classes 
+// Color classes
 .col--primary {
   color: $primary;
 }
@@ -146,4 +146,7 @@ a {
 
 .col--secondaryText {
   color: $secondaryText;
+}
+.col--errorText {
+  color: $errorText;
 }

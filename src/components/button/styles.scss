@@ -6,22 +6,31 @@
   border-radius: $inputBorderRadius;
 
   padding: $p $p--2;
-  
+
   border: none;
   outline: none;
-  
+
   &--primary {
     background: lighten($primary, 10);
     color: $white;
     cursor: pointer;
-    
+
     &:hover {
       background: $primary;
     }
   }
-  
-  
-  
+
+  &--disabled {
+    background: $disabledBackground;
+    opacity: $disabledOpacity;
+    color: $primaryText;
+    cursor: auto;
+
+    &:hover {
+      background: $disabledBackground;
+    }
+  }
+
   &--small {
     max-width: $buttonSmallWidth;
   }

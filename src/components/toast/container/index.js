@@ -9,34 +9,33 @@ import { toast } from 'components/toast'
 import './styles.scss';
 
 class ErrorContainer extends React.Component {
-  
+
   componentWillReceiveProps(nextProps) {
-    const { errors } = nextProps;  
-    
+    const { errors } = nextProps;
+
     if(errors.length) {
       this.showToastErrors(errors);
     }
   }
-  
+
   showToastErrors(errors) {
     const { props } = this;
     for(let i = 0; i < errors.length; i++) {
       const error = errors[i];
       const msg = error.il8n ? props.t(error.il8n) : error.message;
-      
+
       toast.error(msg, {
-        onOpen: () => { props.errorShown(error) },
-        position: toast.POSITION.TOP_CENTER
+        onOpen: () => { props.errorShown(error) }
       });
     }
   }
-  
+
   render() {
     const { props } = this;
     return (
       <div>
-        <ToastContainer 
-          autoClose={5000} 
+        <ToastContainer
+          autoClose={5000}
           className="toast-container"
           bodyClassName="toast-container__body"
           progressClassName="toast-container__progress" />

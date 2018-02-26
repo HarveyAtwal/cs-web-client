@@ -7,21 +7,25 @@
   border: 1px solid $inputBorder;
   border-radius: $inputBorderRadius;
   width: 100%;
-  
+
   padding: 0px $p;
   line-height: $inputLineHeight;
   font-size: 14px;
   outline: none;
-  
+
+  &--disabled {
+    opacity: $disabledOpacity;
+  }
+
   &:hover {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
-  
+
   &:active, &:focus {
     box-shadow: none !important;
     border-color: $inputOutline;
   }
-  
+
   &__label {
     margin-bottom: 5px;
   }

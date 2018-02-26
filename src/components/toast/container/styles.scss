@@ -4,12 +4,12 @@
 .toast-container {
   width: auto;
   top: 25px;
-  
+
   &__body {
     margin-right: $m;
   }
-  
-  .toast { 
+
+  .toast {
     border-radius: $borderRadius;
     line-height: 1.4;
     font-family: $fontFamily;
@@ -17,21 +17,28 @@
     min-height: 0;
     box-shadow: none;
     max-width: 700px;
-    
+
     &--error {
       background: $toastErrorBackground;
       border: 1px solid darken($toastErrorBackground, 10);
       color: $toastErrorColor;
       text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     }
+
+    &--success {
+      background: $toastSuccessBackground;
+      border: 1px solid darken($toastSuccessBackground, 10);
+      color: $toastSuccessColor;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    }
   }
-  
+
   button {
     align-self: center;
     color: #333;
   }
-  
-  
+
+
   @include av-mq("pocket") {
     transform: translateX(0);
     top: 0;
@@ -40,7 +47,7 @@
     margin: 0;
     position: fixed;
     width: 100%;
-    
+
     .toast {
       max-width: 100%;
       border-radius: 0;

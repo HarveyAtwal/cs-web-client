@@ -5,26 +5,34 @@ import './styles.scss'
 import Text from 'components/text'
 
 class Input extends React.Component {
-  
+
+  // ref method
+  focus() {
+    this.input.focus();
+  }
+
   renderLabel() {
     // any changes to this label should be reflected in the select component as well
     const { props } = this;
-    
+
     if(!props.label) {
       return null;
     }
-    
+
     return <Text className="input__label" theme="h5" block semiBold>{props.label}</Text>
   }
-  
+
   render() {
     const { props } = this;
-    
-    const classes = classNames("input", props.className, {});
-    
+
+    const classes = classNames("input", props.className, {
+      "input--disabled": props.disabled
+    });
+
     return [
       this.renderLabel(),
-      <input {...props} className={classes} />
+      <input ref={ (c) => this.input = c }
+        {...props} className={classes} />
     ]
   }
 }

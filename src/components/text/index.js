@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom'
 import './styles.scss'
 
 class Text extends React.Component {
-  
+
   static defaultProps = {
   }
-  
+
   renderChildren() {
     const { props } = this;
     if(props.to) {
       return <Link to={props.to}>{props.children}</Link>;
     }
-    
+
     return props.children;
   }
-  
+
   render() {
     const { props } = this;
-    
+
     let classes = classNames("text", props.className, {
       "text--avatar-upload": props.theme === "avatar-upload",
       "text--display": props.theme === "display",
@@ -39,12 +39,13 @@ class Text extends React.Component {
       "text--bold": props.bold,
       "text--semi-bold": props.semiBold,
       "text--regular": props.regular,
+      "col--errorText": props.error,
     });
-    
+
     if(props.color) {
       classes += ` col--${props.color}`;
     }
-    
+
     return (
       <span className={classes}>
         {this.renderChildren()}
