@@ -24,9 +24,11 @@ class ErrorContainer extends React.Component {
       const error = errors[i];
       const msg = error.il8n ? props.t(error.il8n) : error.message;
 
-      toast.error(msg, {
-        onOpen: () => { props.errorShown(error) }
-      });
+      if(!error.silent) {        
+        toast.error(msg, {
+          onOpen: () => { props.errorShown(error) }
+        });
+      }
     }
   }
 

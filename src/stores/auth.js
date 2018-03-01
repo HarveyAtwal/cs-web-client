@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import { error } from './error';
-import axios from 'axios';
+import api from 'core/api';
 
 // - actions
 export const signout = createAction("AUTH_SIGNOUT")
@@ -13,13 +13,11 @@ const AUTH_SIGNIN = "AUTH_SIGNIN"
 const authSigninLoading  = createAction("AUTH_SIGNIN_LOADING")
 const authSigninSuccess = createAction("AUTH_SIGNIN_SUCCESS")
 const authSigninError = createAction("AUTH_SIGNIN_ERROR")
-export const authSignin = (emailAddress, password) => (dispatch) => {
+export const authSignin = (email, password) => (dispatch) => {
   dispatch(authSigninLoading());
 
-  return axios.post(`${process.env.REACT_APP_API_HOST}/login`, {
-      email: emailAddress,
-      password: password
-    })
+  const config = { noAuth: true };
+  return api.post(`/login`, { email, password }, config)
     .then((response) => {
       localStorage.setItem("jwt_token", response.data);
       dispatch(authSigninSuccess())
@@ -39,13 +37,11 @@ const authSignupLoading  = createAction("AUTH_SIGNUP_LOADING")
 const authSignupSuccess = createAction("AUTH_SIGNUP_SUCCESS")
 const authSignupError = createAction("AUTH_SIGNUP_ERROR")
 export const authSignupRedirect = createAction("AUTH_SIGNUP_REDIRECT")
-export const authSignup = (emailAddress, password) => (dispatch) => {
+export const authSignup = (email, password) => (dispatch) => {
   dispatch(authSignupLoading());
 
-  return axios.post(`${process.env.REACT_APP_API_HOST}/register`, {
-      email: emailAddress,
-      password: password
-    })
+  const config = { noAuth: true };
+  return api.post(`/register`, { email, password }, config)
     .then((response) => {
       dispatch(authSignupSuccess())
     })
@@ -63,8 +59,7 @@ export const authSignup = (emailAddress, password) => (dispatch) => {
 //- State
 const initialState = {
   isAuthenticating: false,
-  isAuthenticated: localStorage.getItem("jwt_token") ? true : false,
-  user: null
+  isAuthenticated: localStorage.getItem("jwt_token") ? true : false
 }
 
 //- Reducers

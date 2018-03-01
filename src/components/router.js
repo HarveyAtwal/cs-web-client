@@ -6,14 +6,27 @@ import {
   Redirect,
 } from 'react-router-dom'
 
+import LoadUserScreen from 'widgets/load-user-screen';
 
-const mapStateToProps = (state) => ({ auth: state.auth });
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  user: state.user
+});
+
 const PrivateRoute = connect(mapStateToProps)((routeProps) => (
   <Route {...routeProps} render={(props) => {
+    // loading user information
+    if(routeProps.user.isLoading) {
+      return <LoadUserScreen />;
+    }
+
+    // user authenticated
     if(routeProps.auth.isAuthenticated) {
       return routeProps.render ? routeProps.render(props) : <routeProps.component {...props} />;
     }
-    
+
+    // redirect to signin page
     return (
       <Redirect to={{
         pathname: pathnames.signin,
@@ -23,12 +36,10 @@ const PrivateRoute = connect(mapStateToProps)((routeProps) => (
   }} />
 ))
 
-
-
 // pass the sub-routes down to keep nesting
 const RouteWithSubRoutes = (route) => {
   const PublicOrPrivateRoute = route.protected ? PrivateRoute : Route;
-  
+
   return (
     <PublicOrPrivateRoute path={route.path} exact={route.exact} render={(props) => {
       return (
