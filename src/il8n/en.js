@@ -1,6 +1,6 @@
 export default {
   general: {
-    appName: "AltPortfolio",
+    appName: "coinskill",
     signIn: "Sign In",
     signUp: "Sign Up"
   },
@@ -75,7 +75,7 @@ export default {
   },
 
   footer: {
-    copy: "© 2017 AltPortfolio",
+    copy: "© 2017 Coinskill",
     home: "Home"
   },
 
@@ -95,7 +95,7 @@ export default {
       description: "We couldn't find the page you requested."
     },
     signin: {
-      title: "Sign into AltPortfolio",
+      title: "Sign into coinskill",
       forgotPassword: "Forgot Password?",
       signup: "Don't have an account? Sign up",
       signin: "Sign In",
