@@ -1,5 +1,7 @@
 import React from 'react'
 import { translate } from 'react-polyglot';
+import { connect } from 'react-redux'
+
 import Avatar from 'components/avatar'
 import Text from 'components/text'
 import Input from 'components/input'
@@ -9,7 +11,7 @@ import Select from 'components/select'
 
 
 class ProfilePage extends React.Component {
-  
+
   state = {
     username: "",
     email: "",
@@ -17,7 +19,7 @@ class ProfilePage extends React.Component {
     accumulatingCurrency: "",
     timeZone: ""
   }
-  
+
   handleCurrencyChange = (currency) => {
     this.setState({ currency });
   }
@@ -27,7 +29,7 @@ class ProfilePage extends React.Component {
   handleTimeZoneChange = (timeZone) => {
     this.setState({ timeZone });
   }
-  
+
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -37,21 +39,21 @@ class ProfilePage extends React.Component {
       [name]: value
     });
   }
-  
+
   buildCurrencyOptions() {
     return [
       { value: 'one', label: 'USD' },
       { value: 'two', label: 'CAD' },
     ];
   }
-  
+
   buildAccumulatingCurrencyOptions() {
     return [
       { value: 'one', label: 'BTC' },
       { value: 'two', label: 'ETH' },
     ];
   }
-  
+
   buildTimeZoneOptions() {
     return [
       { value: 'one', label: '(GMT-11:00) Midway Island' }
@@ -59,64 +61,76 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const { props, state } = this;
-    
+    const { props } = this;
+    const { user } = props;
+    const {
+      username,
+      email,
+      currency,
+      accumulatingCurrency,
+      timeZone
+    } = this.state;
+
     return (
       <div className="my">
         <Text className="mb" theme="h3" block>{props.t("page.settings.profile.accountProfile")}</Text>
         <Divider className="mb--2" />
-        
+
         <div className="center mb">
           <Text className="input__label" theme="h5" block semiBold>{props.t("user.profilePhoto")}</Text>
           <Avatar size="avatar-upload" />
         </div>
-        
-        <Input className="mb--2" 
+
+        <Input className="mb--2"
           label={props.t("user.username")}
-          placeholder={props.t("user.username")} 
-          name="username" 
-          value={state.username} 
+          placeholder={props.t("user.username")}
+          name="username"
+          value={username || user.username}
           onChange={this.handleInputChange}
           disabled />
-        
-        <Input className="mb--2" 
+
+        <Input className="mb--2"
           label={props.t("user.email")}
-          placeholder={props.t("user.email")} 
-          name="email" 
-          value={state.email} 
+          placeholder={props.t("user.email")}
+          name="email"
+          value={email || user.email}
           onChange={this.handleInputChange}
           disabled />
-        
-        <Select className="mb--2" 
+
+        <Select className="mb--2"
           label={props.t("user.currency")}
-          value={state.currency && state.currency.value}
+          value={currency && currency.value}
           onChange={this.handleCurrencyChange}
           clearable={false}
           options={this.buildCurrencyOptions()} />
-        
-        <Select className="mb--2" 
+
+        <Select className="mb--2"
           label={props.t("user.accumulatingCurrency")}
-          value={state.accumulatingCurrency && state.accumulatingCurrency.value}
-          onChange={this.handleAccumulatingCurrencyChange} 
+          value={accumulatingCurrency && accumulatingCurrency.value}
+          onChange={this.handleAccumulatingCurrencyChange}
           clearable={false}
           options={this.buildAccumulatingCurrencyOptions()} />
-        
-        <Select className="mb--2" 
+
+        <Select className="mb--2"
           label={props.t("user.timeZone")}
-          value={state.timeZone && state.timeZone.value}
+          value={timeZone && timeZone.value}
           onChange={this.handleTimeZoneChange}
           clearable={false}
           options={this.buildTimeZoneOptions()}  />
-        
-        <Button 
+
+        <Button
           className="mt"
           type="submit"
-          label={props.t("page.settings.profile.saveChanges")} 
+          label={props.t("page.settings.profile.saveChanges")}
           maxWidth />
-        
+
       </div>
     )
   }
 }
 
-export default translate()(ProfilePage);
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default translate()(connect(mapStateToProps)(ProfilePage));

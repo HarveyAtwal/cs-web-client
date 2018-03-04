@@ -12,7 +12,8 @@ export const fetchCurrentUser = () => (dispatch) => {
 
   return api.get(`/user`)
     .then((response) => {
-      dispatch(fetchCurrentUserSuccess())
+      const { data } = response;
+      dispatch(fetchCurrentUserSuccess(data))
     })
     .catch((err) => {
       const { data } = err.response.data;
@@ -39,10 +40,19 @@ export default handleActions({
   },
 
   FETCH_CURRENT_USER_SUCCESS: (state, action) => {
-    return { ...state, isLoading: false }
+    return {
+      ...state,
+      isLoading: false,
+      ...action.payload
+    }
   },
 
   FETCH_CURRENT_USER_FAILURE: (state, action) => {
     return { ...state, failed: true }
-  }
+  },
+
+  AUTH_SIGNOUT: (state, action) => ({
+    ...state,
+    isLoading: true
+  }),
 }, initialState)
