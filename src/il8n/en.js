@@ -17,6 +17,14 @@ export default {
     accountExists: "An account already exists with that email address"
   },
 
+  illustrations: {
+    addPortfolio: {
+      title: "Looks like you don't have any Portfolios",
+      desc: "Fortunately, it's very easy to create one!",
+      action: "Create New Portfolio"
+    }
+  },
+
   holding: {
     symbol: "Symbol",
     date: "Date",
