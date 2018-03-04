@@ -11,31 +11,31 @@ import { pathnames } from 'routes';
 import './styles.scss'
 
 class Header extends React.Component {
-  
+
   static defaultProps = {
     authenticated: false
   }
-  
+
   state = {
     showAvatarDropdown: false,
     showNavItems: false
   }
-  
+
   handleRemoveOverlay = () => {
-    this.setState({ 
+    this.setState({
       showAvatarDropdown: false,
       showNavItems: false
    });
   }
-  
+
   handleTriggerNav = () => {
     this.setState({ showNavItems: !this.state.showNavItems })
   }
-  
+
   handleTriggerAvatarDropdown = () => {
     this.setState({ showAvatarDropdown: !this.state.showAvatarDropdown })
   }
-    
+
   getNavItems = () => {
     const { props } = this;
     return [{
@@ -56,17 +56,17 @@ class Header extends React.Component {
       linkTo: pathnames.settings.index,
     }]
   }
-  
+
   renderLogo() {
     const { props } = this
     return (
       <Link to={pathnames.index}><span className="header__logo">{props.t('general.appName')}</span></Link>
     )
   }
-  
+
   renderNav() {
     const { props, state } = this;
-    
+
     return (
       <div>
         <div className="header__nav pocket--hide">
@@ -79,7 +79,7 @@ class Header extends React.Component {
                 return (
                   <li>
                     <Link to={navItem.linkTo}>
-                      <Text className="flex">
+                      <Text theme="h4" className="flex">
                         <Icon className="mr" type={navItem.icon} />{navItem.name}
                       </Text>
                     </Link>
@@ -92,10 +92,10 @@ class Header extends React.Component {
       </div>
     )
   }
-  
+
   renderAvatarDropdownLinks() {
     const { props } = this;
-    
+
     return (
       <ul>
         <li><Link to={pathnames.settings.index}><Text>{props.t("avatarDropdown.settings")}</Text></Link></li>
@@ -104,24 +104,26 @@ class Header extends React.Component {
       </ul>
     )
   }
-  
+
   renderAvatarDropdown() {
     const { props } = this;
     return (
-      <div className="content rel">
-        <div className="header__avatar__dropdown pocket--hide">
-          {this.renderAvatarDropdownLinks()}
-        </div>
-        <div className="header__avatar__dropdown 1/1 lap-and-up--hide pocket--show">
-          {this.renderAvatarDropdownLinks()}
+      <div className="content header__avatar-container">
+        <div className="rel">
+          <div className="header__avatar__dropdown pocket--hide">
+            {this.renderAvatarDropdownLinks()}
+          </div>
+          <div className="header__avatar__dropdown 1/1 lap-and-up--hide pocket--show">
+            {this.renderAvatarDropdownLinks()}
+          </div>
         </div>
       </div>
     );
   }
-  
+
   renderAuthenticatedHeader() {
     const { props, state } = this;
-    
+
     return (
       <div className="header__content header__content--authenticated">
         <div className="header__menu lap-and-up--hide pocket--show">
@@ -138,10 +140,10 @@ class Header extends React.Component {
       </div>
     )
   }
-  
+
   renderUnauthenticatedHeader() {
     const { props } = this;
-    
+
     return (
       <div className="header__content">
         {this.renderLogo()}
@@ -152,15 +154,15 @@ class Header extends React.Component {
       </div>
     )
   }
-  
+
   render() {
     const { props, state } = this;
-    
+
     const classes = classNames("header", {
       "header--primary": props.primaryBg,
       "header--authenticated": props.authenticated
     });
-    
+
     return (
       <div>
         <div className={classes}>
