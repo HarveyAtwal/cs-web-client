@@ -55,7 +55,7 @@ export default {
   },
 
   avatarDropdown: {
-    "settings": "Settings",
+    "settings": "Account Profile",
     "invite": "Invite friends",
     "signout": "Sign out"
   },

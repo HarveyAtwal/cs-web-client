@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-polyglot';
 
@@ -7,6 +8,7 @@ import Avatar from 'components/avatar';
 import Text from 'components/text';
 import Tabs from 'components/tabs'
 import Icon from 'components/icon';
+import Divider from 'components/divider';
 import { pathnames } from 'routes';
 import './styles.scss'
 
@@ -105,16 +107,32 @@ class Header extends React.Component {
     )
   }
 
+  renderAvatarDropdownContent() {
+    const { user } = this.props;
+
+    return (
+      <div>
+        <div className="center p--2">
+          <Avatar size="display" />
+          <Text className="my" theme="h4" semiBold center>{user.username}</Text>
+          <Text theme="h6" center>{user.email}</Text>
+        </div>
+        <Divider />
+        {this.renderAvatarDropdownLinks()}
+      </div>
+    )
+  }
+
   renderAvatarDropdown() {
     const { props } = this;
     return (
       <div className="content header__avatar-container">
         <div className="rel">
           <div className="header__avatar__dropdown pocket--hide">
-            {this.renderAvatarDropdownLinks()}
+            {this.renderAvatarDropdownContent()}
           </div>
           <div className="header__avatar__dropdown 1/1 lap-and-up--hide pocket--show">
-            {this.renderAvatarDropdownLinks()}
+            {this.renderAvatarDropdownContent()}
           </div>
         </div>
       </div>
@@ -181,4 +199,8 @@ class Header extends React.Component {
   }
 }
 
-export default translate()(Header)
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+export default translate()(connect(mapStateToProps)(Header))
