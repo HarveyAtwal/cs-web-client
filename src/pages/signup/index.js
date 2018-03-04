@@ -72,6 +72,10 @@ class SignupPage extends React.Component {
       error = "error.emptyPasswordField";
     }
 
+    if(message === `"password" length must be at least 6 characters long`) {
+      error = "error.passwordLength";
+    }
+
     if(message === "Already registered") {
       error = "error.accountExists";
     }

@@ -14,7 +14,8 @@ export default {
     emptyEmailField: "Missing email address field",
     emptyPasswordField: "Missing password field",
     invalidEmail: "Invalid email address entered",
-    accountExists: "An account already exists with that email address"
+    accountExists: "An account already exists with that email address",
+    passwordLength: `Password must be at least 6 characters long`
   },
 
   illustrations: {
