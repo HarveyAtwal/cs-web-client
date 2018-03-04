@@ -9,15 +9,15 @@
   align-items: center;
   flex-direction: row;
   color: $white;
-  
+
 
   &__nav {
     display: flex;
     background: $white;
-    border-bottom: 1px solid $border; 
+    border-bottom: 1px solid $border;
     padding-left: $p--2;
     padding-right: $p--2;
-    
+
     &--pocket {
       position: relative;
       background: $header;
@@ -28,110 +28,133 @@
       padding-bottom: $p;
       z-index: 2;
       box-sizing: border-box;
-      
+
       li a {
-        padding: $p 0;
+        padding: $p--2 0;
         display: block;
-        border-bottom: 1px solid $border;
       }
     }
-    
+
     &__tabs {
       width: $contentWidth;
       margin: 0 auto;
     }
   }
-  
+
   &--authenticated {
     height: $headerAuthenticatedHeight;
   }
-  
+
   &--primary {
     background: $primary;
   }
-  
+
   &__content {
     max-width: $contentWidth;
     width: 100%;
     height: $headerHeight;
     padding-left: $p--2;
     padding-right: $p--2;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    
+
     &--authenticated {
       height: $headerAuthenticatedHeight;
-      
+
       .header__logo {
         font-size: 20px;
       }
     }
   }
-  
+
   &__avatar {
     position: relative;
-    
+
+    &-container {
+      padding-left: $p--2;
+      padding-right: $p--2;
+
+      @include av-mq("pocket") {
+        padding: 0;
+      }
+    }
+
     &__dropdown {
       position: absolute;
       right: 0;
       z-index: 2;
-      
-      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
       background: $white;
       color: $primaryText;
       border: 1px solid $border;
       border-radius: $borderRadius;
       width: 250px;
-      
-      &--pocket {
-        width: 100%;
+      padding-top: 5px;
+
+      &:before {
+        content: ' ';
+        height: 8px;
+        width: 8px;
+        position: absolute;
+        right: 8px;
+        top: -5px;
+        background-color: $white;
+        transform: rotate(45deg);
+        border-left: 1px solid #E6E6E6;
+        border-top: 1px solid #E6E6E6;
+
+
+        @include av-mq("pocket") {
+          right: $p--2 + 8px;
+        }
       }
-      
+
       li {
         a {
           padding: 15px $p--2;
           display: block;
         }
         border-bottom: 1px solid $border;
-        
+
         &:hover {
           cursor: pointer;
           background: $hover;
         }
-        
+
         &:last-child {
           border-bottom: none;
         }
       }
     }
   }
-  
-  
+
+
   &__logo {
     font-weight: 600;
     font-size: 24px;
   }
-  
+
   &__signup {
     border-radius: $inputBorderRadius;
     border: 1px solid $white;
     padding: 5px 10px;
     background: lighten($primary, 10);
-    
+
     &:hover {
       background: $primary;
     }
   }
-  
-  
+
+
   &__links {
     li {
       display: inline-block;
       padding-right: $p--2;
-      
+
       &:last-child {
         padding-right: 0;
       }
