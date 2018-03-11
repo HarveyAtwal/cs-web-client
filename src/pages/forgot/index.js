@@ -4,7 +4,7 @@ import { translate } from 'react-polyglot';
 import { Link } from 'react-router-dom'
 
 import { pathnames } from 'routes';
-import AuthLayout from 'layouts/AuthLayout'
+import AuthLayout from 'layouts/auth-layout'
 import Button from 'components/button'
 import Input from 'components/input'
 import Card from 'components/card'
@@ -19,7 +19,7 @@ class ForgotPage extends React.Component {
     
     return (
       <AuthLayout title={props.t('page.forgot.title')}>
-        <Card className="authlayout__card" theme="borderless" noPadding>
+        <Card className="auth-layout__card" theme="borderless" noPadding>
           <Input className="mb" placeholder={props.t("form.emailAddress")} type="email" autoFocus />
           <Button className="mt" label={props.t("page.forgot.resetPassword")} maxWidth/>
         </Card>

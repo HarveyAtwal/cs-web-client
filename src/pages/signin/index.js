@@ -7,7 +7,7 @@ import { Redirect, Link } from 'react-router-dom'
 import queryString from 'query-string';
 
 import * as authActions from 'stores/auth';
-import AuthLayout from 'layouts/AuthLayout'
+import AuthLayout from 'layouts/auth-layout'
 import Input from 'components/input'
 import Button from 'components/button'
 import Card from 'components/card'
@@ -92,7 +92,7 @@ class SigninPage extends React.Component {
 
     return (
       <AuthLayout title={props.t('page.signin.title')}>
-        <Card className="authlayout__card" theme="borderless" noPadding>
+        <Card className="auth-layout__card" theme="borderless" noPadding>
           {this.renderError()}
           <form onSubmit={this.login}>
             <Input className="mb"

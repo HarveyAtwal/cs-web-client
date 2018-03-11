@@ -3,7 +3,7 @@ import React from 'react'
 import { translate } from 'react-polyglot';
 import { NavLink, Link, Redirect } from 'react-router-dom'
 
-import DashLayout from 'layouts/DashLayout'
+import PortfolioLayout from 'layouts/portfolio-layout'
 import Card from 'components/card'
 import Text from 'components/text'
 import Icon from 'components/icon'
@@ -61,7 +61,7 @@ class SettingsPage extends React.Component {
     }
     
     return (
-      <DashLayout>
+      <PortfolioLayout>
         <div className="grid">
           <div className="grid__cell 1/4 1/1--pocket mb--2">
             {this.renderMenu()}
@@ -74,7 +74,7 @@ class SettingsPage extends React.Component {
             </Card>
           </div>
         </div>
-      </DashLayout>
+      </PortfolioLayout>
     )
   }
 }

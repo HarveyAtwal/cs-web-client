@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 
 import { pathnames } from 'routes';
-import AuthLayout from 'layouts/AuthLayout'
+import AuthLayout from 'layouts/auth-layout'
 import Button from 'components/button'
 import Input from 'components/input'
 import Card from 'components/card'
@@ -98,7 +98,7 @@ class SignupPage extends React.Component {
 
     return (
       <AuthLayout title={props.t('page.signup.title')}>
-        <Card className="authlayout__card" theme="borderless" noPadding>
+        <Card className="auth-layout__card" theme="borderless" noPadding>
           {this.renderError()}
           <form onSubmit={this.signup}>
             <Input className="mb"

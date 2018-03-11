@@ -3,7 +3,7 @@ import React from 'react'
 import { translate } from 'react-polyglot';
 import { Link, Redirect } from 'react-router-dom'
 
-import DashLayout from 'layouts/DashLayout'
+import PortfolioLayout from 'layouts/portfolio-layout'
 import Card from 'components/card'
 import Text from 'components/text'
 
@@ -31,7 +31,7 @@ class TrackerPage extends React.Component {
     }
     
     return (
-      <DashLayout>
+      <PortfolioLayout>
         <div className="grid">
           <div className="grid__cell mb--2">
             <Card header={{ tabs: this.buildTrackerTabs() }}>
@@ -41,7 +41,7 @@ class TrackerPage extends React.Component {
             </Card>
           </div>
         </div>
-      </DashLayout>
+      </PortfolioLayout>
     )
   }
 }

@@ -8,20 +8,20 @@ import Text from 'components/text'
 import { pathnames } from 'routes'
 import './styles.scss'
 
-class DashLayout extends React.Component {
+class PortfolioLayout extends React.Component {
 
   render() {
     const { props } = this;
 
     return (
-      <div className='dashlayout'>
+      <div className='portfolio-layout'>
         <Header authenticated />
-        <div className="dashlayout__container">
-          <div className="dashlayout__content">
+        <div className="portfolio-layout__container">
+          <div className="portfolio-layout__content">
             {props.children}
           </div>
         </div>
-        <div className="dashlayout__footer">
+        <div className="portfolio-layout__footer">
           <div className="footer">
             <div className="footer__content">
               <ul className="footer__links">
@@ -38,4 +38,4 @@ class DashLayout extends React.Component {
   }
 }
 
-export default translate()(DashLayout);
+export default translate()(PortfolioLayout);

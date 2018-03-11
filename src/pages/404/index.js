@@ -1,6 +1,6 @@
 import React from 'react'
 import { translate } from 'react-polyglot';
-import AuthLayout from 'layouts/AuthLayout'
+import AuthLayout from 'layouts/auth-layout'
 import Text from 'components/text'
 
 
