@@ -3,38 +3,35 @@ import React from 'react'
 import { translate } from 'react-polyglot';
 import { NavLink, Link, Redirect } from 'react-router-dom'
 
-import PortfolioLayout from 'layouts/portfolio-layout'
 import Card from 'components/card'
 import Text from 'components/text'
 import Icon from 'components/icon'
 
+import PortfolioLayout from 'layouts/portfolio-layout'
 import { RouteWithSubRoutes } from 'components/router'
 import { pathnames } from 'routes'
 
 import './styles.scss'
 
-class SettingsPage extends React.Component {
-  
+class ProfilePage extends React.Component {
+
   buildSettingMenuItems() {
     const { props } = this;
+
     return [{
       name: props.t("page.settings.profile.title"),
-      linkTo: pathnames.settings.profile,
+      linkTo: pathnames.profile.general,
       icon: 'avatar'
-    },{
+    }, {
       name: props.t("page.settings.password.title"),
-      linkTo: pathnames.settings.password,
+      linkTo: pathnames.profile.password,
       icon: 'password'
-    },{
-      name: props.t("page.settings.api.title"),
-      linkTo: pathnames.settings.api,
-      icon: 'api'
     }]
   }
-  
+
   renderMenu() {
     const items = this.buildSettingMenuItems();
-    
+
     return (
       <Card noPadding>
         <ul>
@@ -55,11 +52,12 @@ class SettingsPage extends React.Component {
 
   render() {
     const { props } = this;
-    const { routes, location } = props;
-    if(location && location.pathname === pathnames.settings.index) {
-      return <Redirect to={pathnames.settings.profile} />
+    const { routes, location, portfolioId } = props;
+
+    if(location && location.pathname === pathnames.profile.index) {
+      return <Redirect to={pathnames.profile.general} />
     }
-    
+
     return (
       <PortfolioLayout>
         <div className="grid">
@@ -79,4 +77,4 @@ class SettingsPage extends React.Component {
   }
 }
 
-export default translate()(SettingsPage);
+export default translate()(ProfilePage);

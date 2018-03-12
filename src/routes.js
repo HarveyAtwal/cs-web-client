@@ -1,19 +1,27 @@
+import pathToRegexp from 'path-to-regexp'
+
 import Index from './pages/index'
-import Portfolio from './pages/portfolio'
-import Tracker from './pages/tracker'
-import TrackerProfits from './pages/tracker/profits'
-import TrackerTrades from './pages/tracker/trades'
-import Activity from './pages/activity'
-import Reports from './pages/reports'
-import Settings from './pages/settings'
-import SettingsProfile from './pages/settings/profile'
-import SettingsPassword from './pages/settings/password'
-import SettingsApiImport from './pages/settings/api'
+import NoMatch from './pages/404'
 import Signin from './pages/signin'
 import Signout from './pages/signout'
 import Signup from './pages/signup'
 import Forgot from './pages/forgot'
-import NoMatch from './pages/404'
+import Portfolio from './pages/portfolio'
+import PortfolioHome from './pages/portfolio/home'
+import PortfolioTracker from './pages/portfolio/tracker'
+import PortfolioTrackerProfits from './pages/portfolio/tracker/profits'
+import PortfolioTrackerTrades from './pages/portfolio/tracker/trades'
+import PortfolioActivity from './pages/portfolio/activity'
+import PortfolioReports from './pages/portfolio/reports'
+import PortfolioSettings from './pages/portfolio/settings'
+import PortfolioSettingsProfile from './pages/portfolio/settings/profile'
+import PortfolioSettingsPassword from './pages/portfolio/settings/password'
+import PortfolioSettingsApiImport from './pages/portfolio/settings/api'
+
+import Profile from './pages/profile'
+import ProfileGeneral from './pages/profile/general'
+import ProfilePassword from './pages/profile/password'
+
 
 const pathnames = {
   index: '/',
@@ -24,80 +32,101 @@ const pathnames = {
   forgot: '/forgot',
   terms: '/terms',
   privacy: '/privacy',
-  portfolio: '/portfolio',
-  tracker: {
-    index: '/tracker',
-    trades: '/tracker/trades',
-    profits: '/tracker/profits',
+  profile: {
+    index: "/profile",
+    general: "/profile/general",
+    password: "/profile/password"
   },
-  activity: '/activity',
-  reports: '/reports',
-  settings: {
-    index: '/settings',
-    profile: '/settings/profile',
-    password: '/settings/password',
-    api: '/settings/api'
-  }
+  portfolio: {
+    index: '/portfolio/:id',
+    home: '/portfolio/:id/home',
+    tracker: {
+      index: '/portfolio/:id/tracker',
+      trades: '/portfolio/:id/tracker/trades',
+      profits: '/portfolio/:id/tracker/profits',
+    },
+    activity: '/portfolio/:id/activity',
+    reports: '/portfolio/:id/reports',
+    settings: {
+      index: '/portfolio/:id/settings',
+      profile: '/portfolio/:id/settings/profile',
+      password: '/portfolio/:id/settings/password',
+      api: '/portfolio/:id/settings/api'
+    },
+  },
 }
 
-const routes = [{ 
+const routes = [{
   path: pathnames.index,
   exact: true,
   component: Index
-}, { 
+}, {
   path: pathnames.signin,
   component: Signin
-}, { 
+}, {
   path: pathnames.signup,
   component: Signup
-}, { 
+}, {
   path: pathnames.signout,
   component: Signout
-}, { 
+}, {
   path: pathnames.forgot,
   component: Forgot
-}, { 
-  path: pathnames.portfolio,
+}, {
+  path: pathnames.profile.index,
   protected: true,
-  component: Portfolio
-}, { 
-  path: pathnames.tracker.index,
-  protected: true,
-  component: Tracker,
+  component: Profile,
   routes: [{
-    path: pathnames.tracker.trades,
-    component: TrackerTrades
-  }, { 
-    path: pathnames.tracker.profits,
-    component: TrackerProfits
+    path: pathnames.profile.general,
+    component: ProfileGeneral,
+  }, {
+    path: pathnames.profile.password,
+    component: ProfilePassword,
   }]
-}, { 
-  path: pathnames.activity,
+}, {
+  path: pathnames.portfolio.index,
   protected: true,
-  component: Activity
-}, { 
-  path: pathnames.reports,
-  protected: true,
-  component: Reports
-}, { 
-  path: pathnames.settings.index,
-  protected: true,
-  component: Settings,
+  component: Portfolio,
   routes: [{
-    path: pathnames.settings.profile,
-    component: SettingsProfile
-  }, { 
-    path: pathnames.settings.password,
-    component: SettingsPassword
-  }, { 
-    path: pathnames.settings.api,
-    component: SettingsApiImport
+    path: pathnames.portfolio.home,
+    component: PortfolioHome,
+  }, {
+    path: pathnames.portfolio.tracker.index,
+    component: PortfolioTracker,
+    routes: [{
+      path: pathnames.portfolio.tracker.trades,
+      component: PortfolioTrackerTrades
+    }, {
+      path: pathnames.portfolio.tracker.profits,
+      component: PortfolioTrackerProfits
+    }]
+  }, {
+    path: pathnames.portfolio.activity,
+    component: PortfolioActivity
+  }, {
+    path: pathnames.portfolio.reports,
+    component: PortfolioReports
+  }, {
+    path: pathnames.portfolio.settings.index,
+    protected: true,
+    component: PortfolioSettings,
+    routes: [{
+      path: pathnames.portfolio.settings.profile,
+      component: PortfolioSettingsProfile
+    }, {
+      path: pathnames.portfolio.settings.password,
+      component: PortfolioSettingsPassword
+    }, {
+      path: pathnames.portfolio.settings.api,
+      component: PortfolioSettingsApiImport
+    }]
   }]
 }, {
   component: NoMatch
 }]
 
 export default routes
-export { 
+export const compilePath = pathToRegexp.compile
+export {
   pathnames
 }

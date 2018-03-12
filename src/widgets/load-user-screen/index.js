@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { pathnames } from 'routes'
 import * as userActions from 'stores/user';
-import PortfolioLayout from 'layouts/portfolio-layout';
 import Loading from 'components/loading'
 
 class LoadUserScreen extends React.Component {
@@ -27,9 +26,7 @@ class LoadUserScreen extends React.Component {
     }
 
     return (
-      <PortfolioLayout>
-        <Loading />
-      </PortfolioLayout>
+      <Loading />
     )
   }
 }

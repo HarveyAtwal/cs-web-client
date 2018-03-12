@@ -1,0 +1,36 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.setting-menu {
+  
+  &__item {
+    color: $secondaryText;
+    cursor: pointer;
+    border-bottom: 1px solid $border;
+    
+    &:last-child {
+      border-bottom: 0;
+    }
+    
+    &__content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: $p;
+    }
+    
+    &:hover {
+      color: $primaryText;
+    }
+    
+    &--active {
+      color: $primary;
+      
+      &:hover {
+        cursor: default;
+        color: $primary;
+      }
+    }
+  }
+}

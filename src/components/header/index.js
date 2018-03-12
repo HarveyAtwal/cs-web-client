@@ -9,7 +9,7 @@ import Text from 'components/text';
 import Tabs from 'components/tabs'
 import Icon from 'components/icon';
 import Divider from 'components/divider';
-import { pathnames } from 'routes';
+import { pathnames, compilePath } from 'routes';
 import './styles.scss'
 
 class Header extends React.Component {
@@ -40,22 +40,24 @@ class Header extends React.Component {
 
   getNavItems = () => {
     const { props } = this;
+    const { portfolio } = props;
+
     return [{
       name: props.t("navigation.portfolio"),
       icon: "portfolio",
-      linkTo: pathnames.portfolio
+      linkTo: compilePath(pathnames.portfolio.home)({ id: portfolio.id })
     },{
       name: props.t("navigation.tracker"),
       icon: "tracker",
-      linkTo: pathnames.tracker.index,
+      linkTo: compilePath(pathnames.portfolio.tracker.index)({ id: portfolio.id })
     },{
       name: props.t("navigation.activity"),
       icon: "activity",
-      linkTo: pathnames.activity,
+      linkTo: compilePath(pathnames.portfolio.activity)({ id: portfolio.id })
     },{
       name: props.t("navigation.settings"),
       icon: "settings",
-      linkTo: pathnames.settings.index,
+      linkTo: compilePath(pathnames.portfolio.settings.index)({ id: portfolio.id })
     }]
   }
 
@@ -100,7 +102,7 @@ class Header extends React.Component {
 
     return (
       <ul>
-        <li><Link to={pathnames.settings.index}><Text>{props.t("avatarDropdown.settings")}</Text></Link></li>
+        <li><Link to={pathnames.profile.index}><Text>{props.t("avatarDropdown.settings")}</Text></Link></li>
         <li><Link to={pathnames.invite}><Text>{props.t("avatarDropdown.invite")}</Text></Link></li>
         <li><Link to={pathnames.signout}><Text>{props.t("avatarDropdown.signout")}</Text></Link></li>
       </ul>
@@ -200,7 +202,8 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  portfolio: state.portfolio
 });
 
 export default translate()(connect(mapStateToProps)(Header))

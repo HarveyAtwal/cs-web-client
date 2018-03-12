@@ -12,10 +12,11 @@ class PortfolioLayout extends React.Component {
 
   render() {
     const { props } = this;
+    const { location } = props;
 
     return (
       <div className='portfolio-layout'>
-        <Header authenticated />
+        <Header authenticated location={location} />
         <div className="portfolio-layout__container">
           <div className="portfolio-layout__content">
             {props.children}

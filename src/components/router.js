@@ -43,7 +43,7 @@ const RouteWithSubRoutes = (route) => {
   return (
     <PublicOrPrivateRoute path={route.path} exact={route.exact} render={(props) => {
       return (
-        <route.component {...props} routes={route.routes} />
+        <route.component {...props} {...route.componentProps} routes={route.routes}  />
       )
     }} />
   );

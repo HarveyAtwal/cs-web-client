@@ -87,7 +87,7 @@ class SigninPage extends React.Component {
     const { auth } = props;
 
     if(auth.isAuthenticated) {
-      return <Redirect to={pathnames.portfolio} />
+      return <Redirect to={pathnames.portfolio.index} />
     }
 
     return (
