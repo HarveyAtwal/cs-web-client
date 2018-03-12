@@ -18,6 +18,7 @@ export const fetchCurrentUser = () => (dispatch) => {
     .catch((err) => {
       const { data } = err.response.data;
 
+      localStorage.removeItem("isLoggedIn");
       dispatch(fetchCurrentUserFail());
       dispatch(error({
         type: FETCH_CURRENT_USER_FAILURE,

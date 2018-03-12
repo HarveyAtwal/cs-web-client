@@ -6,7 +6,7 @@ import api from 'core/api';
 export const signout = createAction("AUTH_SIGNOUT")
 export const authSignout = () => (dispatch) => {
   dispatch(signout());
-  localStorage.removeItem("jwt_token");
+  localStorage.removeItem("isLoggedIn");
 }
 
 const AUTH_SIGNIN = "AUTH_SIGNIN"
@@ -19,7 +19,7 @@ export const authSignin = (email, password) => (dispatch) => {
   const config = { noAuth: true };
   return api.post(`/login`, { email, password }, config)
     .then((response) => {
-      localStorage.setItem("jwt_token", response.data);
+      localStorage.setItem("isLoggedIn", true);
       dispatch(authSigninSuccess())
     })
     .catch((err) => {
@@ -59,7 +59,7 @@ export const authSignup = (email, password) => (dispatch) => {
 //- State
 const initialState = {
   isAuthenticating: false,
-  isAuthenticated: localStorage.getItem("jwt_token") ? true : false
+  isAuthenticated: localStorage.getItem("isLoggedIn") ? true : false
 }
 
 //- Reducers
