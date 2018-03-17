@@ -1,16 +1,5 @@
 @import '~sass/colors';
 @import '~sass/variables';
-@import '~sass/vendor/avalanche/avalanche';
-
-// base class reset
-//
-* {
-  font-family: $fontFamily;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
 
 // util classes
 .rel {
@@ -26,13 +15,16 @@ a {
   cursor: pointer;
 }
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: $overlayZIndex;
   background: $overlay;
+
+  animation-duration: .4s;
+  animation-name: fadeIn;
 }
 .content {
   max-width: $contentWidth;
@@ -40,6 +32,21 @@ a {
 }
 .center {
   text-align: center;
+}
+
+// float
+.clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
 

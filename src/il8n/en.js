@@ -2,7 +2,9 @@ export default {
   general: {
     appName: "coinskill",
     signIn: "Sign In",
-    signUp: "Sign Up"
+    signUp: "Sign Up",
+    cancel: "Cancel",
+    save: "Save"
   },
 
   legal: {

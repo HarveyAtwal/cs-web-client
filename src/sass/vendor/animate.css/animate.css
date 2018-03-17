@@ -1,0 +1,7 @@
+@import './fadeIn';
+@import './pulse';
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}

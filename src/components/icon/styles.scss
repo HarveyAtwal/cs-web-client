@@ -5,8 +5,17 @@
   fill: currentColor;
   width: 1em;
   height: 1em;
-  
+
   &--middle {
     vertical-align: middle;
+  }
+
+  &--hover {
+    cursor: pointer;
+    opacity: .75;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

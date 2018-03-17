@@ -1,0 +1,11 @@
+@import '~sass/util';
+@import '~sass/vendor/avalanche/avalanche';
+@import '~sass/vendor/animate.css/animate';
+
+* {
+  font-family: $fontFamily;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}

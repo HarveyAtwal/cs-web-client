@@ -1,0 +1,59 @@
+@import "~sass/colors";
+@import "~sass/variables";
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $modalZIndex;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  animation-duration: .2s !important;
+
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: $white;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+    margin: 100px auto;
+
+    width: $modalWidth;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    @include av-mq("pocket") {
+      margin: 0 auto;
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__header {
+    &-content {
+      display: flex;
+      align-items: center;
+    }
+
+    &-text {
+      flex: 1;
+    }
+  }
+
+  &__body {
+    padding: $p--2;
+    flex: 1;
+
+    @include av-mq("pocket") {
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+  }
+}

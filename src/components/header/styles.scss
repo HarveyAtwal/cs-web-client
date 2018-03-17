@@ -87,7 +87,7 @@
       right: 0;
       z-index: 2;
 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+      box-shadow: $boxShadow;
       background: $white;
       color: $primaryText;
       border: 1px solid $border;

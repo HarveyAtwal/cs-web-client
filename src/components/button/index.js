@@ -14,6 +14,7 @@ class Button extends React.Component {
 
     const classes = classNames("button", props.className, {
       "button--primary": props.theme === "primary",
+      "button--tertiary": props.theme === "tertiary",
       "button--disabled": props.disabled,
       "button--max": props.maxWidth,
       "button--small": props.small,

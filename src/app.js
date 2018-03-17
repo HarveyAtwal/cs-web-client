@@ -16,7 +16,7 @@ import stores from 'stores';
 import routes from 'routes'
 import strings from 'il8n';
 
-import 'sass/util.scss'
+import 'sass/base.scss'
 
 const store = createStore(stores, middleware);
 
