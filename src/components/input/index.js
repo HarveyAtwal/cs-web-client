@@ -19,7 +19,7 @@ class Input extends React.Component {
       return null;
     }
 
-    return <Text className="input__label" theme="h5" block semiBold>{props.label}</Text>
+    return <Text key={0} className="input__label" theme="h5" block semiBold>{props.label}</Text>
   }
 
   render() {
@@ -31,7 +31,7 @@ class Input extends React.Component {
 
     return [
       this.renderLabel(),
-      <input ref={ (c) => this.input = c }
+      <input key={1} ref={ (c) => this.input = c }
         {...props} className={classes} />
     ]
   }

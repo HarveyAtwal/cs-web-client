@@ -1,10 +1,8 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import Card from 'components/card'
-import Text from 'components/text'
 
 import { RouteWithSubRoutes } from 'components/router'
 import { pathnames, compilePath } from 'routes'
@@ -27,7 +25,7 @@ class TrackerPage extends React.Component {
   render() {
     const { props } = this;
     const { routes, location, portfolioId } = props;
-    
+
     if(location.pathname === compilePath(pathnames.portfolio.tracker.index)({ id: portfolioId })) {
       return <Redirect to={compilePath(pathnames.portfolio.tracker.trades)({ id: portfolioId })} />
     }

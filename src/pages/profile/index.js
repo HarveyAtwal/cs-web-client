@@ -1,7 +1,6 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
-import { NavLink, Link, Redirect } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 import Card from 'components/card'
 import Text from 'components/text'
@@ -35,8 +34,8 @@ class ProfilePage extends React.Component {
     return (
       <Card noPadding>
         <ul>
-          {items.map((item) => (
-            <li className="setting-menu__item">
+          {items.map((item, i) => (
+            <li key={i} className="setting-menu__item">
               <NavLink to={item.linkTo} activeClassName="setting-menu__item--active">
                 <Text className="setting-menu__item__content">
                   {item.icon && <Icon type={item.icon} className="mr"  />}
@@ -52,7 +51,7 @@ class ProfilePage extends React.Component {
 
   render() {
     const { props } = this;
-    const { routes, location, portfolioId } = props;
+    const { routes, location } = props;
 
     if(location && location.pathname === pathnames.profile.index) {
       return <Redirect to={pathnames.profile.general} />

@@ -27,7 +27,7 @@ class PortfolioPage extends React.Component {
 
   renderLoaded() {
     const { props } = this;
-    const { portfolio, match, routes, location } = props;
+    const { match, routes } = props;
 
     const { id } = match.params;
     if(id === "-1") {
@@ -57,7 +57,7 @@ class PortfolioPage extends React.Component {
 
   render() {
     const { props } = this;
-    const { portfolio, match, location } = props;
+    const { match, location } = props;
 
     const { id } = match.params;
     if(id === ":id")  {

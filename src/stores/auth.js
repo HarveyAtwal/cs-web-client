@@ -80,7 +80,7 @@ export default handleActions({
   AUTH_SIGNIN_ERROR: (state, action) => ({
     ...state,
     isAuthenticating: false,
-    loginError: { ... action.payload }
+    loginError: { ...action.payload }
   }),
 
   AUTH_SIGNOUT: (state, action) => ({

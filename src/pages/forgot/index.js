@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
 import { Link } from 'react-router-dom'
@@ -16,7 +15,7 @@ class ForgotPage extends React.Component {
 
   render() {
     const { props } = this;
-    
+
     return (
       <AuthLayout title={props.t('page.forgot.title')}>
         <Card className="auth-layout__card" theme="borderless" noPadding>

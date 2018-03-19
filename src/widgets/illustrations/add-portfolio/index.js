@@ -1,9 +1,7 @@
 import React from 'react'
-import classNames from 'classnames';
 
 import { translate } from 'react-polyglot';
 import Card from 'components/card'
-import Text from 'components/text'
 import Modal from 'components/modal'
 import Illustration from 'components/illustration'
 

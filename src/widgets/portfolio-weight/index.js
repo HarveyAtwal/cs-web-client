@@ -1,16 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { translate } from 'react-polyglot';
 
-import Chart from 'chart.js';
+import Chart from 'chart.js'
 import Card from 'components/card'
 
 import 'chart.piecelabel.js'
 import './styles.scss'
 
 class PortfolioWeight extends React.Component {
-  
+
   COLORS = [
     "#B8D760",
     "#5EBBE7",
@@ -24,13 +23,13 @@ class PortfolioWeight extends React.Component {
     "#DBD853",
     "#99ADF6",
   ];
-  
+
   componentDidMount() {
     this.populateChart()
   }
-  
+
   populateChart() {
-    const chart = new Chart(this.refs.chart, {
+    new Chart(this.refs.chart, {
       type: 'doughnut',
       data: {
         datasets: [{
@@ -44,7 +43,7 @@ class PortfolioWeight extends React.Component {
           'BTC'
         ]
       },
-      options:  { 
+      options:  {
         cutoutPercentage: 70,
         responsive: true,
         maintainAspectRatio: true,
@@ -63,18 +62,18 @@ class PortfolioWeight extends React.Component {
       }
     })
   }
-  
+
   renderChart() {
     return (
       <canvas ref="chart" id="chart" />
     )
   }
-  
+
   render() {
     const { props } = this;
-    
+
     const classes = classNames("portfolio-weight", props.className, {});
-    
+
     return (
       <Card className={classes} header={{ title: props.t("widgets.portfolioWeight.title") }}>
         {this.renderChart()}

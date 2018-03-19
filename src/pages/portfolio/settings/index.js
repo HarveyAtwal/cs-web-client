@@ -1,7 +1,6 @@
-import _ from 'lodash'
 import React from 'react'
 import { translate } from 'react-polyglot';
-import { NavLink, Link, Redirect } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 import Card from 'components/card'
 import Text from 'components/text'

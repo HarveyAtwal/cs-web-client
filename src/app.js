@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { combineReducers, createStore, bindActionCreators } from 'redux'
-import { Provider, connect } from 'react-redux'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import { I18n } from 'react-polyglot';
 import {
   BrowserRouter as Router,

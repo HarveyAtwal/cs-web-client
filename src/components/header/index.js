@@ -69,7 +69,7 @@ class Header extends React.Component {
   }
 
   renderNav() {
-    const { props, state } = this;
+    const { state } = this;
 
     return (
       <div>
@@ -126,7 +126,6 @@ class Header extends React.Component {
   }
 
   renderAvatarDropdown() {
-    const { props } = this;
     return (
       <div className="content header__avatar-container">
         <div className="rel">
@@ -142,8 +141,6 @@ class Header extends React.Component {
   }
 
   renderAuthenticatedHeader() {
-    const { props, state } = this;
-
     return (
       <div className="header__content header__content--authenticated">
         <div className="header__menu lap-and-up--hide pocket--show">

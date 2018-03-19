@@ -3,14 +3,13 @@ import classNames from 'classnames';
 
 import { translate } from 'react-polyglot';
 import Card from 'components/card'
-import Text from 'components/text'
 import Table from 'components/table'
 import Illustration from 'components/illustration'
 
 import './styles.scss'
 
 class PositionsWidget extends React.Component {
-  
+
   state = {
     positions: [{
       symbol: "REQ/BTC",
@@ -32,10 +31,10 @@ class PositionsWidget extends React.Component {
       gain: ''
     }]
   }
-  
+
   buildColumns() {
     const { props } = this;
-    
+
     return [{
       Header: props.t("holding.symbol"),
       accessor: 'symbol'
@@ -66,21 +65,21 @@ class PositionsWidget extends React.Component {
       accessor: 'gain'
     }]
   }
-  
+
   renderEmptyIllustration() {
     const { props } = this;
-    
+
     return (
-      <Illustration 
+      <Illustration
         title={props.t("widgets.positions.empty")}
         action={props.t("widgets.positions.openPosition")}
         padded />
     )
   }
-  
+
   renderTable() {
     const { positions } = this.state;
-    
+
     return (
       <Table
         columns={this.buildColumns()}
@@ -90,22 +89,22 @@ class PositionsWidget extends React.Component {
       />
     )
   }
-  
+
   renderContent() {
     const { state } = this;
-    
+
     if(state.positions.length === 0) {
       return this.renderEmptyIllustration();
     }
-    
+
     return this.renderTable();
   }
-  
+
   render() {
     const { props } = this;
-    
+
     const classes = classNames("positions", props.className, {});
-    
+
     return (
       <Card className={classes} header={{ title: props.t('widgets.positions.title') }} noPadding>
         {this.renderContent()}

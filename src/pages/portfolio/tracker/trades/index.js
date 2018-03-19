@@ -1,13 +1,12 @@
 import React from 'react'
 import { translate } from 'react-polyglot';
-import Text from 'components/text'
 
 
 class TradesPage extends React.Component {
 
   render() {
-    const { props } = this;
-    
+    // const { props } = this;
+
     return (
       <div>trades</div>
     )

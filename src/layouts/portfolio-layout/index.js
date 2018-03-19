@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import { translate } from 'react-polyglot';
 
 import Header from 'components/header'

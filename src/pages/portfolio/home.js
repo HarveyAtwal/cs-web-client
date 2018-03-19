@@ -1,7 +1,6 @@
 import React from 'react'
 import { translate } from 'react-polyglot';
 
-import PortfolioLayout from 'layouts/portfolio-layout'
 import Metric from 'widgets/metric'
 import PortfolioWeight from 'widgets/portfolio-weight'
 import Positions from 'widgets/positions'
@@ -10,8 +9,6 @@ import TradeHeatMap from 'widgets/trade-heat-map'
 class PortfolioHome extends React.Component {
 
   render() {
-    const { props } = this;
-
     return (
       <div className="grid">
         <div className="grid__cell mb--2"><TradeHeatMap /></div>
