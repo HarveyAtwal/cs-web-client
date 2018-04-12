@@ -20,7 +20,7 @@ export const fetchPortfolio = () => (dispatch) => {
       const { response } = err;
       const { status } = response;
 
-      // portfolio not founbd
+      // portfolio not found
       if(status === 404) {
         dispatch(portfolioNotFound())
         return;

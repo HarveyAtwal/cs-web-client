@@ -27,17 +27,16 @@ class PortfolioPage extends React.Component {
 
   renderLoaded() {
     const { props } = this;
-    const { match, routes } = props;
+    const { routes, portfolio } = props;
 
-    const { id } = match.params;
-    if(id === "-1") {
+    if(portfolio.id === -1) {
       return this.renderEmptyState();
     }
 
     return (
       <div>
         {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} componentProps={{ portfolioId: id }} {...route}  />
+          <RouteWithSubRoutes key={i} componentProps={{ portfolioId: portfolio.id }} {...route}  />
         ))}
       </div>
     )
