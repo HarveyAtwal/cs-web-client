@@ -28,6 +28,16 @@ export default {
     }
   },
 
+  modals: {
+    createPortfolio: {
+      title: "Create New Portfolio",
+      portfolioName: "Portfolio Name",
+      portfolioNamePlaceholder: "Long term investments",
+      currency: "Local currency",
+      accumulatingCurrency: "Accumulating cryptocurrency"
+    }
+  },
+
   holding: {
     symbol: "Symbol",
     date: "Date",
@@ -93,8 +103,6 @@ export default {
   user: {
     username: "Username",
     email: "Email",
-    currency: "Local currency",
-    accumulatingCurrency: "Accumulating currency",
     language: "Language",
     timeZone: "Time zone",
     profilePhoto: "Profile Photo"

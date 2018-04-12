@@ -5,11 +5,13 @@ let id = 0;
 function InternalAppError(error) {
   this.name = "InternalAppError"
   this.id = id++;
-  
-  const { type, il8n, message } = error;
+
+  const { type, il8n, message, response, silent } = error;
   this.il8n = il8n;
   this.message = message;
+  this.response = response;
   this.type = type;
+  this.silent = silent;
 }
 InternalAppError.prototype = Error.prototype;
 
@@ -33,13 +35,13 @@ export default handleActions({
     ...state,
     action.payload,
   ]),
-  
+
   ERROR_SHOWN: (state, action) => {
     return ([
       ...state.filter(error => (error.id !== action.payload.id))
     ])
   },
-    
+
 }, initialState)
 
 //- Selectors

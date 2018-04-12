@@ -3,7 +3,6 @@ import { error } from './error';
 import api from 'core/api';
 
 // - actions
-const FETCH_CURRENT_USER_FAILURE = "FETCH_CURRENT_USER_FAILURE";
 const fetchCurrentUserLoading = createAction("FETCH_CURRENT_USER_LOADING")
 const fetchCurrentUserSuccess = createAction("FETCH_CURRENT_USER_SUCCESS")
 const fetchCurrentUserFail = createAction("FETCH_CURRENT_USER_FAILURE")
@@ -16,13 +15,11 @@ export const fetchCurrentUser = () => (dispatch) => {
       dispatch(fetchCurrentUserSuccess(data))
     })
     .catch((err) => {
-      const { data } = err.response.data;
-
       localStorage.removeItem("isLoggedIn");
       dispatch(fetchCurrentUserFail());
       dispatch(error({
-        type: FETCH_CURRENT_USER_FAILURE,
-        message: data,
+        type: "FETCH_CURRENT_USER_FAILURE",
+        response: err.response,
         silent: true
       }))
     })

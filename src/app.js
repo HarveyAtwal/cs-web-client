@@ -8,8 +8,8 @@ import {
   Switch
 } from 'react-router-dom'
 
-import ToastContainer from 'components/toast/container'
-import { RouteWithSubRoutes } from 'components/router'
+import ToastContainer from 'ui/components/toast/container'
+import { RouteWithSubRoutes } from 'ui/components/router'
 
 import middleware from 'core/middleware';
 import stores from 'stores';

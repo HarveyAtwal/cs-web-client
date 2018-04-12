@@ -23,10 +23,12 @@ export const authSignin = (email, password) => (dispatch) => {
       dispatch(authSigninSuccess())
     })
     .catch((err) => {
+      const { data } = err.response;
       dispatch(authSigninError(err.response.data))
       dispatch(error({
         type: AUTH_SIGNIN,
-        message: err.response.data.message,
+        response: err.response,
+        message: data && data.message,
         il8n: "page.signin.invalid"
       }))
     })
@@ -113,7 +115,6 @@ export default handleActions({
 
   ERROR: (state, action) => ({
     ...state,
-    isAuthenticated: false,
     isAuthenticating: false,
     isRegistering: false
   }),

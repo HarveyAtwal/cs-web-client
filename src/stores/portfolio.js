@@ -4,7 +4,6 @@ import api from 'core/api';
 // - actions
 export const portfolioNotFound = createAction("PORTFOLIO_404")
 
-// const FETCH_PORTFOLIO_FAILURE = "FETCH_PORTFOLIO_FAILURE";
 const fetchPortfolioLoading = createAction("FETCH_PORTFOLIO_LOADING")
 const fetchPortfolioSuccess = createAction("FETCH_PORTFOLIO_SUCCESS")
 const fetchPortfolioFail = createAction("FETCH_PORTFOLIO_FAILURE")
