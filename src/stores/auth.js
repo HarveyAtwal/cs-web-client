@@ -23,12 +23,13 @@ export const authSignin = (email, password) => (dispatch) => {
       dispatch(authSigninSuccess())
     })
     .catch((err) => {
-      const { data } = err.response;
-      dispatch(authSigninError(err.response.data))
+      const response = err.response;
+      dispatch(authSigninError(response))
       dispatch(error({
         type: AUTH_SIGNIN,
-        response: err.response,
-        message: data && data.message,
+        response: response,
+        message: response && response.data.message,
+        silent: !response,
         il8n: "page.signin.invalid"
       }))
     })
@@ -48,10 +49,13 @@ export const authSignup = (email, password) => (dispatch) => {
       dispatch(authSignupSuccess())
     })
     .catch((err) => {
-      dispatch(authSignupError(err.response.data))
+      const response = err.response;
+      dispatch(authSignupError(response))
       dispatch(error({
         type: AUTH_SIGNUP,
-        message: err.response.data.message,
+        response: response,
+        message: response && response.data.message,
+        silent: !response,
         il8n: "page.signup.invalid"
       }))
     })

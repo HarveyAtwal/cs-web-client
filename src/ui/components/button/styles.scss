@@ -4,12 +4,21 @@
 .button {
   box-sizing: border-box;
   border-radius: $inputBorderRadius;
-
   padding: $p $p--2;
-
   cursor: pointer;
   border: none;
-  outline: none;
+  position: relative;
+
+  &:active {
+    outline: none;
+  }
+
+  &__loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 13px;
+  }
 
   &--primary {
     background: lighten($primary, 10);

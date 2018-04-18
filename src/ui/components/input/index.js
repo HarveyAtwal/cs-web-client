@@ -14,19 +14,28 @@ class Input extends React.Component {
   renderLabel() {
     // any changes to this label should be reflected in the select component as well
     const { props } = this;
+    const {
+      required
+    } = this.props;
 
     if(!props.label) {
       return null;
     }
 
-    return <Text key={0} className="input__label" theme="h5" block semiBold>{props.label}</Text>
+    return (
+      <Text key={0} className="input__label" theme="h5" block semiBold>
+        {props.label}
+        {required && <Text color="errorText">{' *'}</Text>}
+      </Text>
+    )
   }
 
   render() {
     const { props } = this;
 
     const classes = classNames("input", props.className, {
-      "input--disabled": props.disabled
+      "input--disabled": props.disabled,
+      "input--error": props.error,
     });
 
     return [

@@ -17,6 +17,15 @@
     opacity: $disabledOpacity;
   }
 
+  &--error {
+    background: $errorBackground;
+    border: 1px solid $errorBorder;
+
+    &:active, &:focus {
+      border-color: $errorBorder !important;
+    }
+  }
+
   &:hover {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }

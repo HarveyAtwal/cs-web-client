@@ -59,7 +59,9 @@ class SigninPage extends React.Component {
       return null;
     }
 
-    const { message, status } = loginError;
+    const data = loginError.data || {};
+
+    const { message, status } = data;
     let error = "page.signin.invalid";
 
     if(message === `"email" is not allowed to be empty`) {
@@ -112,7 +114,7 @@ class SigninPage extends React.Component {
               autoFocus={state.passwordFocus} />
             <Button className="mt--2"
               type="submit"
-              label={auth.isAuthenticating ? "" : props.t("page.signin.signin")}
+              label={props.t("page.signin.signin")}
               onClick={this.login}
               maxWidth
               loading={auth.isAuthenticating}

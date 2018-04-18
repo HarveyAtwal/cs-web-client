@@ -1,6 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { translate } from 'react-polyglot';
+import * as portfolioActions from 'stores/portfolio';
 import Modal from 'ui/components/modal'
 import Input from 'ui/components/input'
 import Select from 'ui/components/select'
@@ -17,6 +19,7 @@ class CreatePortfolioModal extends React.Component {
     portfolioName: "",
     currency: {},
     accumulatingCurrency: {},
+    invalid: false
   }
 
   constructor(props) {
@@ -39,18 +42,37 @@ class CreatePortfolioModal extends React.Component {
     }
   }
 
-  render() {
-    const { onClose } = this.props;
-    const { props } = this;
+  postPortfolio() {
+    const { postPortfolio, portfolio } = this.props;
     const {
       portfolioName,
       currency,
       accumulatingCurrency
     } = this.state;
 
+    postPortfolio({
+      displayName: portfolioName,
+      localCurrency: currency.value,
+      accumulatingCurrency: accumulatingCurrency.value,
+      isDefault: portfolio.id === -1
+    });
+  }
+
+  render() {
+    const { onClose, portfolio } = this.props;
+    const { props } = this;
+    const {
+      portfolioName,
+      currency,
+      accumulatingCurrency,
+      invalid
+    } = this.state;
+
     return (
       <Modal title={props.t("modals.createPortfolio.title")}
+        onActionClick={this.handleCreatePortfolio}
         onClose={onClose}
+        actionSaving={portfolio.isPosting}
         hasFooter >
         <Input className="mb--2"
           placeholder={props.t("modals.createPortfolio.portfolioNamePlaceholder")}
@@ -58,7 +80,9 @@ class CreatePortfolioModal extends React.Component {
           name="portfolioName"
           value={portfolioName}
           onChange={this.handleInputChange}
+          error={invalid}
           required
+          maxLength={50}
           autoFocus />
 
         <Select className="mb--2"
@@ -95,6 +119,16 @@ class CreatePortfolioModal extends React.Component {
     this.setState({ accumulatingCurrency });
   }
 
+  handleCreatePortfolio = () => {
+    const { portfolioName } = this.state;
+    if(!portfolioName) {
+      this.setState({ invalid: true });
+      return;
+    }
+
+    this.postPortfolio();
+  }
+
   //
   // Misc Methods
   //
@@ -125,8 +159,13 @@ class CreatePortfolioModal extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currencies: state.currencies.currencies,
-  coins: state.coins.coins
+  currencies: Object.values(state.entities.currencies),
+  coins: Object.values(state.entities.coins),
+  portfolio: state.portfolio
 });
 
-export default translate()(connect(mapStateToProps)(CreatePortfolioModal));
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(portfolioActions, dispatch)
+}
+
+export default translate()(connect(mapStateToProps, mapDispatchToProps)(CreatePortfolioModal));

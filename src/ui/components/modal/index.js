@@ -50,7 +50,7 @@ class Modal extends React.Component {
 
   renderFooter() {
     const { props } = this;
-    const { onClose, onActionClick, actionLabel } = props;
+    const { onClose, onActionClick, actionLabel, actionSaving } = props;
 
     return (
       <div className="modal__footer">
@@ -62,6 +62,8 @@ class Modal extends React.Component {
               onClick={onClose} />
             <Button label={actionLabel || props.t("general.save")}
               className="ml"
+              disabled={actionSaving}
+              loading={actionSaving}
               onClick={onActionClick} />
           </div>
         </div>

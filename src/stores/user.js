@@ -27,21 +27,21 @@ export const fetchCurrentUser = () => (dispatch) => {
 
 //- State
 const initialState = {
-  isLoading: true,
+  isFetching: true,
   failed: false
 }
 
 //- Reducers
 export default handleActions({
   FETCH_CURRENT_USER_LOADING: (state, action) => {
-    return { ...state, isLoading: true, failed: false }
+    return { ...state, isFetching: true, failed: false }
   },
 
   FETCH_CURRENT_USER_SUCCESS: (state, action) => {
     return {
       ...state,
-      isLoading: false,
-      ...action.payload
+      isFetching: false,
+      id: action.payload.id
     }
   },
 
@@ -51,6 +51,6 @@ export default handleActions({
 
   AUTH_SIGNOUT: (state, action) => ({
     ...state,
-    isLoading: true
+    isFetching: true
   }),
 }, initialState)

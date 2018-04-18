@@ -38,6 +38,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
     "node-polyglot": "^2.2.2",
+    "normalizr": "^3.2.4",
     "npm": "^5.6.0",
     "object-assign": "4.1.1",
     "path-to-regexp": "^2.2.0",

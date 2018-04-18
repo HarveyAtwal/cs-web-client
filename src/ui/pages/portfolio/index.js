@@ -53,21 +53,29 @@ class PortfolioPage extends React.Component {
 
     return (
       <div>
-        {portfolio.isLoading && <Loading />}
-        {!portfolio.isLoading && this.renderLoaded()}
+        {portfolio.isFetching && <Loading />}
+        {!portfolio.isFetching && this.renderLoaded()}
       </div>
     )
   }
 
   render() {
     const { props } = this;
-    const { match, location } = props;
+    const { match, location, portfolio } = props;
 
     const { id } = match.params;
     if(id === ":id")  {
       return (
         <Redirect to={{
           pathname: compilePath(pathnames.portfolio.home)({ id: -1 })
+        }} />
+      )
+    }
+
+    if(portfolio.id !== -1 && id !== `${portfolio.id}`) {
+      return (
+        <Redirect to={{
+          pathname: compilePath(pathnames.portfolio.home)({ id: portfolio.id })
         }} />
       )
     }

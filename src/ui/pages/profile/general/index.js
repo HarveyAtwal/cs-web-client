@@ -92,7 +92,7 @@ class GeneralProfilePage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.entities.users[state.user.id],
 })
 
 export default translate()(connect(mapStateToProps)(GeneralProfilePage));

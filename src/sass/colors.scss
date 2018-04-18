@@ -19,13 +19,16 @@ $secondaryText: #6a737c;
 $errorText: #f26373;
 $hintText: $divider;
 
+$errorBorder: #d72b3f;
+$errorBackground: #fbeaec;
+
 $tableHeader: #f9fafb;
 
 $disabledBackground: #e0e1e2;
 $disabledOpacity: 0.45;
 
 // toast
-$toastErrorBackground: #f2dede;
-$toastErrorColor: #b94a48;
+$toastErrorBackground: $errorBackground;
+$toastErrorColor: $errorBorder;
 $toastSuccessBackground: #dff0d8;
 $toastSuccessColor: #468847;

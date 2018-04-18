@@ -199,7 +199,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  user: state.entities.users[state.user.id],
   portfolio: state.portfolio
 });
 

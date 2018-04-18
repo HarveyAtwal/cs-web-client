@@ -25,9 +25,10 @@ class Button extends React.Component {
         className={classes}
         disabled={props.disabled}
         onClick={props.onClick}>
-          <Text theme="h5" uppercase={props.uppercase}>
-            {props.loading && <i className="fa fa-circle-o-notch fa-spin"></i>} {props.label}
-          </Text>
+        <Text theme="h5" uppercase={props.uppercase}>
+          <Text className={props.loading && 'hidden'}>{props.label}</Text>
+          {props.loading && <i className="button__loader fa fa-circle-o-notch fa-spin"></i>}
+        </Text>
       </button>
     )
   }

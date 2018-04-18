@@ -11,8 +11,8 @@ export const fetchCurrencies = () => (dispatch) => {
 
   return api.get(`/currencies`)
     .then((response) => {
-      const { data } = response;
-      dispatch(fetchCurrenciesSuccess(data))
+      const { currencies } = response.data;
+      dispatch(fetchCurrenciesSuccess(currencies))
     })
     .catch((err) => {
       dispatch(fetchCurrenciesFailure());
@@ -39,8 +39,7 @@ export default handleActions({
   FETCH_CURRENCIES_SUCCESS: (state, action) => {
     return {
       ...state,
-      isFetchingCurrencies: false,
-      ...action.payload
+      isFetchingCurrencies: false
     }
   },
 

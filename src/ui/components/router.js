@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 const PrivateRoute = connect(mapStateToProps)((routeProps) => (
   <Route {...routeProps} render={(props) => {
     // loading user information
-    if(routeProps.user.isLoading) {
+    if(routeProps.user.isFetching) {
       return <LoadUserScreen />;
     }
 

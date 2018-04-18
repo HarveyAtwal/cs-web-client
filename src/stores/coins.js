@@ -11,8 +11,8 @@ export const fetchCoins = () => (dispatch) => {
 
   return api.get(`/coins`)
     .then((response) => {
-      const { data } = response;
-      dispatch(fetchCoinsSuccess(data))
+      const { coins } = response.data;
+      dispatch(fetchCoinsSuccess(coins))
     })
     .catch((err) => {
       dispatch(fetchCoinsFailure());
@@ -39,8 +39,7 @@ export default handleActions({
   FETCH_COINS_SUCCESS: (state, action) => {
     return {
       ...state,
-      isFetchingCoins: false,
-      ...action.payload
+      isFetchingCoins: false
     }
   },
 
